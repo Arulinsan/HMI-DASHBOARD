@@ -121,12 +121,12 @@ export default function ContactSection() {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+62 878 2017 2047", "WhatsApp Available"],
+      details: ["+62 812 8945 8368", "WhatsApp Available"],
     },
   ];
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/6287820172047", "_blank");
+    window.open("https://wa.me/6281289458368", "_blank");
   };
 
   return (
