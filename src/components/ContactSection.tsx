@@ -39,7 +39,6 @@ export default function ContactSection() {
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as
       | string
       | undefined;
-
     if (!serviceId || !templateId || !publicKey) {
       setSubmitStatus({
         type: "error",
@@ -65,7 +64,7 @@ export default function ContactSection() {
           inquiry_type: formData.inquiryType,
           message: formData.message,
         },
-        { publicKey }
+        publicKey
       );
 
       setSubmitStatus({
@@ -84,7 +83,8 @@ export default function ContactSection() {
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: "Gagal mengirim pesan. Coba lagi atau hubungi via WhatsApp.",
+        message:
+          "Gagal mengirim pesan. Coba lagi atau hubungi via WhatsApp. " + error,
       });
     } finally {
       setIsSending(false);
@@ -112,6 +112,11 @@ export default function ContactSection() {
       icon: MapPin,
       title: "Marketing Office",
       details: ["Menara Karya", "Jakarta, Indonesia"],
+    },
+    {
+      icon: MapPin,
+      title: "Warehouse",
+      details: ["Bandar Lampung", "Near Panjang Port"],
     },
     {
       icon: Mail,

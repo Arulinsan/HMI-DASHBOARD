@@ -1,7 +1,59 @@
-import { Container, TrendingUp, Users, MapPin } from "lucide-react";
+import { Users } from "lucide-react";
 
 export default function ProductionSection() {
-  const regions = [
+  const productionCapacity = [
+    {
+      component: "Production Facility Area",
+      capacity: "± 2,000 m²",
+      remarks: "Located in Bandar Lampung, near Panjang Port",
+    },
+    {
+      component: "Drying Capacity",
+      capacity: "± 1,500 tons/month",
+      remarks: "Natural drying & mechanical dryers",
+    },
+    {
+      component: "Sorting & Grading Units",
+      capacity: "± 1,000 tons/month",
+      remarks: "Mechanical and manual sorting",
+    },
+    {
+      component: "Storage Warehouse Capacity",
+      capacity: "± 600 tons",
+      remarks: "Humidity-controlled facility",
+    },
+    {
+      component: "Average Export Capacity",
+      capacity: "20–30 containers/month",
+      remarks: "320 bags (60 kg) per container",
+    },
+    {
+      component: "Expansion Potential",
+      capacity: "Up to 3,000 tons/month",
+      remarks: "Through farmer partnership expansion",
+    },
+  ];
+
+  const valueNetworkItems = [
+    {
+      title: "Farmer Training",
+      description: "Post-harvest and drying techniques",
+    },
+    {
+      title: "Quality Verification",
+      description: "Moisture and defect control systems",
+    },
+    {
+      title: "Sustainable Farming",
+      description: "Environmentally friendly practices",
+    },
+    {
+      title: "Traceability System",
+      description: "From farmer groups to export shipment.",
+    },
+  ];
+
+  const farmerRegions = [
     "West Lampung",
     "Tanggamus",
     "Bengkulu",
@@ -20,130 +72,103 @@ export default function ProductionSection() {
             </h2>
             <div className="w-24 h-1 bg-accent-green1 mb-6"></div>
 
-            <div className="space-y-6">
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex items-center space-x-4 mb-4">
-                  <Container className="w-10 h-10 text-accent-green1" />
-                  <div>
-                    <div className="text-3xl font-bold text-accent-green2 font-sans">
-                      20–30
-                    </div>
-                    <div className="text-gray-600">Containers per month</div>
-                  </div>
-                </div>
-                <p className="text-gray-700 text-sm">
-                  Monthly export capacity with consistent quality standards
-                </p>
-              </div>
-
-              <div className="bg-primary-dark rounded-xl p-6 text-white">
-                <h3 className="font-sans text-xl font-bold mb-4">
-                  Container Calculation
-                </h3>
-                <div className="space-y-2 text-gray-300">
-                  <p className="flex justify-between">
-                    <span>Bags per container:</span>
-                    <span className="font-semibold text-accent-green2">
-                      320 bags
-                    </span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span>Weight per bag:</span>
-                    <span className="font-semibold text-accent-green2">
-                      60 kg
-                    </span>
-                  </p>
-                  <div className="border-t border-accent-green1/30 pt-2 mt-2">
-                    <p className="flex justify-between text-white font-bold">
-                      <span>Total per container:</span>
-                      <span className="text-accent-green2">19,200 kg</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex items-center space-x-4 mb-4">
-                  <TrendingUp className="w-10 h-10 text-accent-green1" />
-                  <div>
-                    <div className="text-3xl font-bold text-accent-green2 font-sans">
-                      3,000
-                    </div>
-                    <div className="text-gray-600">
-                      Tons expansion potential
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-700 text-sm">
-                  Scalable capacity through our extensive farmer network
-                </p>
-              </div>
+            <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b-2 border-accent-green1">
+                    <th className="text-left py-4 px-4 font-sans text-lg text-primary-dark">
+                      Component
+                    </th>
+                    <th className="text-left py-4 px-4 font-sans text-lg text-primary-dark">
+                      Capacity / Specification
+                    </th>
+                    <th className="text-left py-4 px-4 font-sans text-lg text-primary-dark">
+                      Remarks
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {productionCapacity.map((row, index) => (
+                    <tr
+                      key={index}
+                      className="border-b border-accent-green1/20 hover:bg-white/50 transition-colors"
+                    >
+                      <td className="py-4 px-4 font-medium text-primary-dark">
+                        {row.component}
+                      </td>
+                      <td className="py-4 px-4 text-gray-700">
+                        {row.capacity}
+                      </td>
+                      <td className="py-4 px-4 text-gray-700 text-sm">
+                        {row.remarks}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
 
           <div>
             <h2 className="font-sans text-4xl md:text-5xl font-bold text-primary-dark mb-6">
-              Supply Chain & Traceability
+              Supply Chain & Value Network
             </h2>
             <div className="w-24 h-1 bg-accent-green1 mb-6"></div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg mb-6">
-              <div className="flex items-center space-x-4 mb-6">
+              <div className="flex items-center space-x-4 mb-4">
                 <Users className="w-10 h-10 text-accent-green1" />
                 <div>
                   <div className="text-4xl font-bold text-accent-green2 font-sans">
                     300+
                   </div>
-                  <div className="text-gray-600">Partner Farmers</div>
+                  <div className="text-gray-600">smallholder farmers</div>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                We work directly with over 300 farmers across key
-                Robusta-growing regions in Sumatra, ensuring quality from farm
-                to export.
+              <p className="text-gray-700 leading-relaxed">
+                ALMP partners with more than{" "}
+                <strong>300 smallholder farmers</strong> across{" "}
+                <strong>West Lampung</strong>, <strong>Tanggamus</strong>,{" "}
+                <strong>Bengkulu</strong>, <strong>South Sumatra</strong>,{" "}
+                <strong>Jambi</strong>, and <strong>Way Kanan</strong>.
               </p>
-            </div>
 
-            <div className="bg-primary-dark rounded-xl p-8 text-white mb-6">
-              <h3 className="font-sans text-xl font-bold mb-4 flex items-center">
-                <MapPin className="w-6 h-6 mr-2 text-accent-green2" />
-                Source Regions
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {regions.map((region, index) => (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6">
+                {farmerRegions.map((region) => (
                   <div
-                    key={index}
-                    className="bg-white/10 border border-accent-green1/30 rounded-lg px-4 py-2 text-sm"
+                    key={region}
+                    className="bg-soft-beige rounded-lg px-4 py-2 text-sm text-primary-dark border border-accent-green1/10"
                   >
                     {region}
                   </div>
                 ))}
               </div>
+
+              <p className="text-gray-700 leading-relaxed mt-4">
+                To maintain consistent quality, ALMP implements:
+              </p>
             </div>
 
-            <div className="bg-accent-green1 rounded-xl p-8 text-white">
-              <h3 className="font-sans text-xl font-bold mb-4">
-                Our Commitments
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-accent-green2 mr-2">✓</span>
-                  <span>Post-harvest training programs</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-accent-green2 mr-2">✓</span>
-                  <span>Advanced moisture-control systems</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-accent-green2 mr-2">✓</span>
-                  <span>Eco-friendly farming practices</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-accent-green2 mr-2">✓</span>
-                  <span>Full traceability to farmer groups</span>
-                </li>
-              </ul>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              {valueNetworkItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl p-6 shadow-lg border border-accent-green1/10"
+                >
+                  <h3 className="font-sans text-lg font-bold text-primary-dark mb-2">
+                    {item.title}:
+                  </h3>
+                  <p className="text-gray-700">{item.description}</p>
+                </div>
+              ))}
             </div>
+
+            <p className="text-gray-700">
+              All products are dried, sorted, and packaged in ALMP’s main
+              facility following{" "}
+              <strong>standardized operational procedures</strong> to ensure
+              export consistency.
+            </p>
           </div>
         </div>
       </div>

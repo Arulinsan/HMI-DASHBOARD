@@ -92,9 +92,6 @@ export default function Navigation() {
                 {link.name}
               </button>
             ))}
-            <button className="w-full bg-accent-green1 hover:bg-accent-green2 text-white px-6 py-3 rounded font-medium transition-colors mt-4">
-              Request Price
-            </button>
           </div>
         </div>
       )}

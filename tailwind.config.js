@@ -12,7 +12,7 @@ export default {
           green2: "#8BAE66",
         },
         soft: {
-          beige: "#EBD5AB",
+          beige: "#FFFFFF",
         },
       },
       fontFamily: {

@@ -9,25 +9,33 @@ import {
 } from "lucide-react";
 
 export default function AboutSection() {
-  const facilities = [
+  const coreBusiness = [
     {
       icon: ContainerIcon,
-      label: "Trading and exporting Robusta green coffee beansy",
+      label: "Trading & Export Robusta",
     },
     {
       icon: HandshakeIcon,
-      label: "Developing supply chains and farmer partnerships",
+      label: "Farmer partnership",
     },
     {
       icon: MapIcon,
-
-      label: "Domestic and international distribution and marketing",
+      label: "Global distribution",
     },
     {
       icon: Globe2,
-
-      label: "Export collaboration and global market development",
+      label: "Export collaboration",
     },
+  ];
+
+  const facilityData = [
+    { label: "Production facility area", value: "2,000 m²" },
+    { label: "Drying capacity", value: "1,500 tons/month" },
+    {
+      label: "Storage warehouse capacity",
+      value: "600 tons (humidity-controlled)",
+    },
+    { label: "Sorting & grading", value: "Mechanical + manual" },
   ];
 
   return (
@@ -56,6 +64,11 @@ export default function AboutSection() {
                 PT Andan Laju Mitra Persada (ALMP) is a private company based in
                 Bandar Lampung, Indonesia, specializing in agricultural
                 commodity trading, particularly Robusta coffee
+              </p>
+              <p>
+                ALMP focuses on international export of Lampung Robusta,
+                developing sustainable supply chains and long-term partnerships
+                with farmer groups.
               </p>
               <p>
                 Founded on the foundation of trust, integrity, and hard work,
@@ -144,8 +157,8 @@ export default function AboutSection() {
             Core Business Activities
           </h3>
           <div className="grid md:grid-cols-4 gap-4">
-            {facilities.map((facility, index) => {
-              const Icon = facility.icon;
+            {coreBusiness.map((item, index) => {
+              const Icon = item.icon;
               return (
                 <div
                   key={index}
@@ -153,10 +166,29 @@ export default function AboutSection() {
                 >
                   <Icon className="w-12 h-12 text-accent-green1 mx-auto mb-8" />
 
-                  <p className="text-gray-600 font-normal">{facility.label}</p>
+                  <p className="text-gray-600 font-normal">{item.label}</p>
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <h3 className="font-sans text-3xl font-bold text-primary-dark mb-8 text-center">
+            Our Facilities
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {facilityData.map((item, index) => (
+              <div
+                key={index}
+                className="bg-soft-beige rounded-xl p-6 shadow-lg"
+              >
+                <div className="text-sm text-gray-600 mb-2">{item.label}</div>
+                <div className="font-sans text-xl font-bold text-primary-dark">
+                  {item.value}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

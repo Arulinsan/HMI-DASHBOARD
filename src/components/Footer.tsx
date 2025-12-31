@@ -1,19 +1,19 @@
-import { Coffee, Mail, Phone, MapPin } from 'lucide-react';
+import { Coffee, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'About Us', id: 'about' },
-    { name: 'Products', id: 'products' },
-    { name: 'Quality', id: 'quality' },
-    { name: 'Export Info', id: 'export' },
+    { name: "About Us", id: "about" },
+    { name: "Products", id: "products" },
+    { name: "Quality", id: "quality" },
+    { name: "Export Info", id: "export" },
   ];
 
   const resources = [
-    { name: 'Sustainability', id: 'sustainability' },
-    { name: 'Partnership', id: 'partnership' },
-    { name: 'Contact', id: 'contact' },
+    { name: "Sustainability", id: "sustainability" },
+    { name: "Partnership", id: "partnership" },
+    { name: "Contact", id: "contact" },
   ];
 
   const scrollToSection = (id: string) => {
@@ -22,7 +22,7 @@ export default function Footer() {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
   };
 
@@ -34,12 +34,15 @@ export default function Footer() {
             <div className="flex items-center space-x-3 mb-4">
               <Coffee className="w-8 h-8 text-accent-green2" />
               <div>
-                <h3 className="font-serif text-xl font-bold">ALMP Exports</h3>
-                <p className="text-accent-green2 text-xs">Premium Robusta Coffee</p>
+                <h3 className="font-sans text-xl font-bold">ALMP Exports</h3>
+                <p className="text-accent-green2 text-xs">
+                  Premium Robusta Coffee
+                </p>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              Indonesia's leading Robusta coffee exporter, delivering premium Lampung origin beans to global markets since 1976.
+              Indonesia’s leading Robusta coffee exporter, delivering premium
+              Lampung origin beans to global markets since 1976.
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2 text-gray-400">
@@ -52,13 +55,13 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-2 text-gray-400">
                 <Phone className="w-4 h-4 text-accent-green2" />
-                <span>+62 XXX XXXX XXXX</span>
+                <span>+62 812 8945 8368</span>
               </div>
             </div>
           </div>
 
           <div>
-            <h4 className="font-serif text-lg font-bold mb-4">Quick Links</h4>
+            <h4 className="font-sans text-lg font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.id}>
@@ -74,7 +77,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-serif text-lg font-bold mb-4">Resources</h4>
+            <h4 className="font-sans text-lg font-bold mb-4">Resources</h4>
             <ul className="space-y-2">
               {resources.map((link) => (
                 <li key={link.id}>
@@ -90,7 +93,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-serif text-lg font-bold mb-4">Legal Entity</h4>
+            <h4 className="font-sans text-lg font-bold mb-4">Legal Entity</h4>
             <div className="text-sm text-gray-400 space-y-3">
               <div>
                 <p className="font-semibold text-white mb-1">PT ALMP</p>
@@ -118,9 +121,15 @@ export default function Footer() {
               © {currentYear} PT ALMP. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm text-gray-400">
-              <button className="hover:text-accent-green2 transition-colors">Privacy Policy</button>
-              <button className="hover:text-accent-green2 transition-colors">Terms of Service</button>
-              <button className="hover:text-accent-green2 transition-colors">Export Terms</button>
+              <button className="hover:text-accent-green2 transition-colors">
+                Privacy Policy
+              </button>
+              <button className="hover:text-accent-green2 transition-colors">
+                Terms of Service
+              </button>
+              <button className="hover:text-accent-green2 transition-colors">
+                Export Terms
+              </button>
             </div>
           </div>
         </div>
