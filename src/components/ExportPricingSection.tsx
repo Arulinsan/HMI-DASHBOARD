@@ -50,7 +50,7 @@ export default function ExportPricingSection() {
 
         <div className="max-w-5xl mx-auto">
           <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl overflow-x-auto -mx-4 sm:mx-0">
-            <table className="w-full min-w-[760px] md:min-w-[920px]">
+            <table className="w-full min-w-[680px] md:min-w-[920px]">
               <thead>
                 <tr className="border-b-2 border-accent-green1">
                   <th className="text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">
@@ -79,10 +79,10 @@ export default function ExportPricingSection() {
                     <td className="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm md:text-base">
                       {row.availability}
                     </td>
-                    <td className="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                    <td className="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm md:text-base break-words sm:whitespace-nowrap">
                       {row.price}
                     </td>
-                    <td className="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">
+                    <td className="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm break-words">
                       {row.remarks}
                     </td>
                   </tr>

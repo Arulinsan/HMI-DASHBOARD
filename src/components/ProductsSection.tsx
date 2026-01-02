@@ -76,7 +76,7 @@ export default function ProductsSection() {
 
         <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-12 mb-8 md:mb-10 shadow-lg">
           <div className="overflow-x-auto -mx-4 sm:mx-0">
-            <table className="w-full min-w-[760px] md:min-w-[900px]">
+            <table className="w-full min-w-[700px] md:min-w-[900px]">
               <thead>
                 <tr className="border-b-2 border-accent-green1">
                   <th className="text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">

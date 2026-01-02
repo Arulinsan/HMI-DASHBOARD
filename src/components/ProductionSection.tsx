@@ -70,16 +70,16 @@ export default function ProductionSection() {
             <div className="w-24 h-1 bg-accent-green1 mb-6"></div>
 
             <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg overflow-x-auto -mx-4 sm:mx-0">
-              <table className="w-full min-w-[760px] md:min-w-[820px]">
+              <table className="w-full table-fixed">
                 <thead>
                   <tr className="border-b-2 border-accent-green1">
-                    <th className="text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">
+                    <th className="w-[40%] text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">
                       {t("production.table.component")}
                     </th>
-                    <th className="text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">
+                    <th className="w-[25%] text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">
                       {t("production.table.capacity")}
                     </th>
-                    <th className="text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">
+                    <th className="w-[35%] text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">
                       {t("production.table.remarks")}
                     </th>
                   </tr>
@@ -90,13 +90,13 @@ export default function ProductionSection() {
                       key={index}
                       className="border-b border-accent-green1/20 hover:bg-white/50 transition-colors"
                     >
-                      <td className="py-3 px-3 sm:px-4 font-medium text-primary-dark text-xs sm:text-sm md:text-base">
+                      <td className="py-3 px-3 sm:px-4 font-medium text-primary-dark text-xs sm:text-sm md:text-base break-words">
                         {row.component}
                       </td>
-                      <td className="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                      <td className="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm md:text-base break-words sm:whitespace-nowrap">
                         {row.capacity}
                       </td>
-                      <td className="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">
+                      <td className="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm break-words">
                         {row.remarks}
                       </td>
                     </tr>
@@ -109,13 +109,13 @@ export default function ProductionSection() {
               <h3 className="font-sans text-xl font-bold text-primary-dark mb-4">
                 {t("production.monthlyByGrade.title")}
               </h3>
-              <table className="w-full min-w-[520px]">
+              <table className="w-full table-fixed">
                 <thead>
                   <tr className="border-b-2 border-accent-green1">
-                    <th className="text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">
+                    <th className="w-[55%] text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">
                       {t("production.monthlyByGrade.table.grade")}
                     </th>
-                    <th className="text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">
+                    <th className="w-[45%] text-left py-3 px-3 sm:px-4 font-sans text-xs sm:text-sm md:text-lg text-primary-dark">
                       {t("production.monthlyByGrade.table.capacity")}
                     </th>
                   </tr>
@@ -126,10 +126,10 @@ export default function ProductionSection() {
                       key={index}
                       className="border-b border-accent-green1/20 hover:bg-white/50 transition-colors"
                     >
-                      <td className="py-3 px-3 sm:px-4 font-medium text-primary-dark text-xs sm:text-sm md:text-base">
+                      <td className="py-3 px-3 sm:px-4 font-medium text-primary-dark text-xs sm:text-sm md:text-base break-words">
                         {row.grade}
                       </td>
-                      <td className="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                      <td className="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm md:text-base break-words sm:whitespace-nowrap">
                         {row.capacity}
                       </td>
                     </tr>
@@ -147,9 +147,9 @@ export default function ProductionSection() {
 
             <div className="bg-white rounded-xl p-5 sm:p-8 shadow-lg mb-6">
               <div className="flex items-center space-x-4 mb-4">
-                <Users className="w-10 h-10 text-accent-green1" />
+                <Users className="w-9 h-9 sm:w-10 sm:h-10 text-accent-green1" />
                 <div>
-                  <div className="text-4xl font-bold text-accent-green2 font-sans">
+                  <div className="text-3xl sm:text-4xl font-bold text-accent-green2 font-sans">
                     300+
                   </div>
                   <div className="text-gray-600">
@@ -161,11 +161,11 @@ export default function ProductionSection() {
                 <Trans i18nKey="production.partnerParagraph" />
               </p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mt-6">
                 {farmerRegions.map((region) => (
                   <div
                     key={region}
-                    className="bg-soft-beige rounded-lg px-4 py-2 text-sm text-primary-dark border border-accent-green1/10"
+                    className="bg-soft-beige rounded-lg px-3 sm:px-4 py-2 text-xs sm:text-sm text-primary-dark border border-accent-green1/10"
                   >
                     {region}
                   </div>
