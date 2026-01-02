@@ -35,7 +35,7 @@ export default function AboutSection() {
     { label: t("about.facilities.area"), value: "20,000 m²" },
     {
       label: t("about.facilities.drying"),
-      value: isId ? "234 kontainer/bulan" : "234 containers/month",
+      value: isId ? "234 kontainer per bulan" : "234 containers per month",
     },
     {
       label: t("about.facilities.warehouse"),

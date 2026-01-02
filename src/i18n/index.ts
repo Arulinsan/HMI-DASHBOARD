@@ -34,6 +34,8 @@ const resources = {
         about: "About",
         products: "Products",
         production: "Production",
+        products_capacity: "Production Capacity",
+        supplyChain: "Supply Chain",
         quality: "Quality",
         exportInfo: "Export Info",
         sustainability: "Sustainability",
@@ -46,6 +48,7 @@ const resources = {
         subHeadline: "Lampung Origin, Export Grade 1–6",
         subline:
           "Processing capacity 20–40 containers/month and export capability up to 230 containers/month (by grade), sourced from 300+ partnered farmers across Sumatra.",
+        supplyChain: "Rantai Pasok",
         highlights: {
           facility: "production facility",
           drying: "drying capacity",
@@ -74,9 +77,9 @@ const resources = {
             grade3:
               "Grade 3 | Max defects ≤45 | Moisture ≤13% | Screen 17–19 | For industrial export",
             grade4a:
-              "Grade 4A (EK1) | Defects ≤60 | Moisture ≤13% | Screen 16–18 | Capacity 20–40 containers/month",
+              "Grade 4A | Defects ≤60 | Moisture ≤13% | Screen 16–18 | Capacity 20–40 containers/month",
             grade4b:
-              "Grade 4B (EK2) | Defects ≤80 | Moisture ≤13% | Screen 15–17 | Mass-market coffee",
+              "Grade 4B | Defects ≤80 | Moisture ≤13% | Screen 15–17 | Mass-market coffee",
             grade5: "Grade 5 | Max defects ≤120 | Moisture ≤13% | Screen 15–17",
             grade6: "Grade 6 | Max defects ≤150 | Moisture ≤13% | Screen 15–17",
           },
@@ -496,9 +499,9 @@ const resources = {
             grade3:
               "Grade 3 | Defect maks. ≤45 | Kadar air ≤13% | Screen 17–19 | Untuk kebutuhan ekspor industri",
             grade4a:
-              "Grade 4A (EK1) | Defect ≤60 | Kadar air ≤13% | Screen 16–18 | Kapasitas 20–40 kontainer/bulan",
+              "Grade 4A | Defect ≤60 | Kadar air ≤13% | Screen 16–18 | Kapasitas 20–40 kontainer/bulan",
             grade4b:
-              "Grade 4B (EK2) | Defect ≤80 | Kadar air ≤13% | Screen 15–17 | Untuk kebutuhan pasar massal",
+              "Grade 4B | Defect ≤80 | Kadar air ≤13% | Screen 15–17 | Untuk kebutuhan pasar massal",
             grade5:
               "Grade 5 | Defect maks. ≤120 | Kadar air ≤13% | Screen 15–17",
             grade6:

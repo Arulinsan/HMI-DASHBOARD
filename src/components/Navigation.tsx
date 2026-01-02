@@ -32,6 +32,8 @@ export default function Navigation() {
     { key: "nav.home", id: "home" },
     { key: "nav.about", id: "about" },
     { key: "nav.products", id: "products" },
+    { key: "nav.products_capacity", id: "production-capacity" },
+    { key: "nav.supplyChain", id: "supply-chain" },
     { key: "nav.quality", id: "quality" },
     { key: "nav.exportInfo", id: "export" },
     { key: "nav.sustainability", id: "sustainability" },
@@ -50,7 +52,7 @@ export default function Navigation() {
         isScrolled ? "bg-primary-dark shadow-lg" : "bg-primary-dark/95"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-10 2xl:px-12">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center space-x-3">
             <img
@@ -75,7 +77,7 @@ export default function Navigation() {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-white hover:text-accent-green2 transition-colors text-sm font-medium"
+                className="text-white hover:text-accent-green2 transition-colors text-sm font-medium whitespace-nowrap"
               >
                 {t(link.key)}
               </button>

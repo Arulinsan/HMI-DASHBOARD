@@ -1,4 +1,11 @@
 import { useTranslation } from "react-i18next";
+import ImageCarousel from "./ImageCarousel";
+
+import ek145 from "../assets/image/EK 1 45 defect.jpeg";
+import ek160 from "../assets/image/EK 1 60 defect.jpeg";
+import ek180 from "../assets/image/EK 1 80 defect.jpeg";
+import ek1120 from "../assets/image/EK 1 120 defect.jpeg";
+import ek1150 from "../assets/image/EK 1 150 defect.jpeg";
 
 export default function ProductsSection() {
   const { t } = useTranslation();
@@ -28,7 +35,7 @@ export default function ProductsSection() {
       description: t("products.descriptions.industrial"),
     },
     {
-      grade: "Grade 4A (EK1)",
+      grade: "Grade 4A",
       type: t("products.types.commercial"),
       defects: "≤ 60",
       moisture: "≤ 13",
@@ -36,7 +43,7 @@ export default function ProductsSection() {
       description: t("products.descriptions.capacity2040"),
     },
     {
-      grade: "Grade 4B (EK2)",
+      grade: "Grade 4B",
       type: t("products.types.commercial"),
       defects: "≤ 80",
       moisture: "≤ 13",
@@ -74,7 +81,63 @@ export default function ProductsSection() {
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-12 mb-8 md:mb-10 shadow-lg">
+        <div className="grid lg:grid-cols-5 gap-6 md:gap-8 mb-10 md:mb-12">
+          <div className="lg:col-span-3">
+            <ImageCarousel
+              items={[
+                {
+                  src: ek145,
+                  alt: "EK1 45 Defects",
+                  caption: "EK1 45 Defects",
+                },
+                {
+                  src: ek160,
+                  alt: "EK1 60 Defects",
+                  caption: "EK1 60 Defects",
+                },
+                {
+                  src: ek180,
+                  alt: "EK1 80 Defects",
+                  caption: "EK1 80 Defects",
+                },
+                {
+                  src: ek1120,
+                  alt: "EK1 120 Defects",
+                  caption: "EK1 120 Defects",
+                },
+                {
+                  src: ek1150,
+                  alt: "EK1 150 Defects",
+                  caption: "EK1 150 Defects",
+                },
+              ]}
+            />
+          </div>
+
+          <div className="lg:col-span-2">
+            <div className="bg-soft-beige rounded-2xl p-5 sm:p-6 border border-accent-green1/10">
+              <div className="space-y-4 text-sm sm:text-base text-gray-700">
+                <div>
+                  <div className="font-semibold text-primary-dark">
+                    {t("products.packaging")}
+                  </div>
+                  <div className="mt-1">{t("products.values.juteBags")}</div>
+                </div>
+
+                <div className="h-px bg-accent-green1/20" />
+
+                <div>
+                  <div className="font-semibold text-primary-dark">
+                    {t("products.exportPort")}
+                  </div>
+                  <div className="mt-1">{t("products.values.exportPort")}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-10 shadow-lg">
           <div className="overflow-x-auto -mx-4 sm:mx-0">
             <table className="w-full min-w-[700px] md:min-w-[900px]">
               <thead>
@@ -128,21 +191,6 @@ export default function ProductsSection() {
               </tbody>
             </table>
           </div>
-        </div>
-
-        <div className="text-sm text-gray-700 space-y-2">
-          <p>
-            <span className="font-semibold text-primary-dark">
-              {t("products.packaging")}:
-            </span>
-            {t("products.values.juteBags")}
-          </p>
-          <p>
-            <span className="font-semibold text-primary-dark">
-              {t("products.exportPort")}:
-            </span>{" "}
-            {t("products.values.exportPort")}
-          </p>
         </div>
       </div>
     </section>
