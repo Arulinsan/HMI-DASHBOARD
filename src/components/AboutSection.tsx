@@ -7,82 +7,71 @@ import {
   Globe2,
   MapIcon,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function AboutSection() {
+  const { t, i18n } = useTranslation();
+  const isId = i18n.resolvedLanguage === "id";
   const coreBusiness = [
     {
       icon: ContainerIcon,
-      label: "Trading & Export Robusta",
+      label: t("about.core.trading"),
     },
     {
       icon: HandshakeIcon,
-      label: "Farmer partnership",
+      label: t("about.core.farmer"),
     },
     {
       icon: MapIcon,
-      label: "Global distribution",
+      label: t("about.core.distribution"),
     },
     {
       icon: Globe2,
-      label: "Export collaboration",
+      label: t("about.core.collaboration"),
     },
   ];
 
   const facilityData = [
-    { label: "Production facility area", value: "2,000 m²" },
-    { label: "Drying capacity", value: "1,500 tons/month" },
+    { label: t("about.facilities.area"), value: "20,000 m²" },
     {
-      label: "Storage warehouse capacity",
-      value: "600 tons (humidity-controlled)",
+      label: t("about.facilities.drying"),
+      value: isId ? "234 kontainer/bulan" : "234 containers/month",
     },
-    { label: "Sorting & grading", value: "Mechanical + manual" },
+    {
+      label: t("about.facilities.warehouse"),
+      value: "7,600 tons",
+    },
+    {
+      label: t("about.facilities.sorting"),
+      value: isId ? "Mekanis" : "Mechanical",
+    },
   ];
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-sans text-4xl md:text-5xl font-bold text-primary-dark mb-4">
-            About Us
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold text-primary-dark mb-4">
+            {t("about.title")}
           </h2>
 
           <div className="w-24 h-1 bg-accent-green1 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            A legacy of excellence in Robusta coffee export, serving global
-            markets since 1976
+          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
+            {t("about.subtitle")}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12 md:mb-16">
+          <div className="bg-white rounded-2xl p-5 sm:p-8 shadow-lg">
             <h3 className="font-sans text-2xl font-bold text-primary-dark mb-6 flex items-center">
               <Target className="w-6 h-6 text-accent-green1 mr-3" />
-              Our Story
+              {t("about.storyTitle")}
             </h3>
             <div className="space-y-4 text-gray-700 leading-relaxed text-justify">
-              <p>
-                PT Andan Laju Mitra Persada (ALMP) is a private company based in
-                Bandar Lampung, Indonesia, specializing in agricultural
-                commodity trading, particularly Robusta coffee
-              </p>
-              <p>
-                ALMP focuses on international export of Lampung Robusta,
-                developing sustainable supply chains and long-term partnerships
-                with farmer groups.
-              </p>
-              <p>
-                Founded on the foundation of trust, integrity, and hard work,
-                ALMP is committed to empowering local farmers, improving
-                post-harvest quality, and bridging Indonesian coffee to global
-                markets
-              </p>
-              <p>
-                The company traces its roots back to 1976, when it was
-                established as a family business by Mr. Hasni in West Lampung.
-                In 2017, it was officially incorporated as PT Andan Laju Mitra
-                Persada under the Notarial Deed of Dr. Prima Rangkupi, S.H.,
-                M.H., M.Kn.
-              </p>
+              <p>{t("about.storyP1")}</p>
+              <p>{t("about.storyP2")}</p>
+              <p>{t("about.storyP3")}</p>
+              <p>{t("about.storyP4")}</p>
             </div>
 
             <div className="mt-8 pt-8 border-t border-gray-200">
@@ -90,7 +79,7 @@ export default function AboutSection() {
                 <MapPin className="w-5 h-5 text-accent-green1 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-primary-dark">
-                    Headquarters
+                    {t("about.hq")}
                   </p>
                   <p className="text-gray-600 text-sm">
                     Bandar Lampung, Indonesia
@@ -101,7 +90,7 @@ export default function AboutSection() {
                 <MapPin className="w-5 h-5 text-accent-green1 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-primary-dark">
-                    Marketing Office
+                    {t("about.marketing")}
                   </p>
                   <p className="text-gray-600 text-sm">Menara Karya, Jakarta</p>
                 </div>
@@ -109,43 +98,35 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <div className="bg-white rounded-2xl p-5 sm:p-8 shadow-lg">
             <h3 className="font-sans text-2xl font-bold text-primary-dark mb-6 flex items-center">
               <Eye className="w-6 h-6 text-accent-green1 mr-3" />
-              Mission & Vision
+              {t("about.missionVisionTitle")}
             </h3>
             <div className="space-y-6">
               <div>
                 <h4 className="font-semibold text-lg text-accent-green1 mb-3">
-                  Our Mission
+                  {t("about.mission")}
                 </h4>
-                <p className="text-gray-700 leading-relaxed text-justify mb-3">
-                  1. Developing available resources to provide useful and
-                  sustainable added value
-                </p>
-                <p className="text-gray-700 leading-relaxed text-justify mb-3">
-                  2. Maintaining trust and providing the best and solution
-                  oriented services for business partners and the company’s
-                  business network
-                </p>
-                <p className="text-gray-700 leading-relaxed text-justify mb-3">
-                  3. Forming trustworthy, resilient and growing HR (Human
-                  Resources) in a good working environment and atmosphere for
-                  employees and the company.
-                </p>
-                <p className="text-gray-700 leading-relaxed text-justify">
-                  4. Innovating and contributing well and nobly to the
-                  preservation of nature and human civilization
-                </p>
+                {(t("about.missionItems", { returnObjects: true }) as string[])
+                  .slice(0, 4)
+                  .map((item, idx) => (
+                    <p
+                      key={idx}
+                      className={`text-gray-700 leading-relaxed text-justify ${
+                        idx < 3 ? "mb-3" : ""
+                      }`}
+                    >
+                      {idx + 1}. {item}
+                    </p>
+                  ))}
               </div>
               <div>
                 <h4 className="font-semibold text-lg text-accent-green1 mb-3">
-                  Our Vision
+                  {t("about.vision")}
                 </h4>
                 <p className="text-gray-700 leading-relaxed text-justify">
-                  To become a superior, reliable and trusted global trading
-                  company and to create a sustainable, innovative and positively
-                  contributing business
+                  {t("about.visionText")}
                 </p>
               </div>
             </div>
@@ -154,7 +135,7 @@ export default function AboutSection() {
 
         <div>
           <h3 className="font-sans text-3xl font-bold text-primary-dark mb-8 text-center">
-            Core Business Activities
+            {t("about.coreTitle")}
           </h3>
           <div className="grid md:grid-cols-4 gap-4">
             {coreBusiness.map((item, index) => {
@@ -162,7 +143,7 @@ export default function AboutSection() {
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow"
+                  className="bg-white rounded-xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-shadow"
                 >
                   <Icon className="w-12 h-12 text-accent-green1 mx-auto mb-8" />
 
@@ -173,15 +154,15 @@ export default function AboutSection() {
           </div>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-12 md:mt-16">
           <h3 className="font-sans text-3xl font-bold text-primary-dark mb-8 text-center">
-            Our Facilities
+            {t("about.facilitiesTitle")}
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {facilityData.map((item, index) => (
               <div
                 key={index}
-                className="bg-soft-beige rounded-xl p-6 shadow-lg"
+                className="bg-soft-beige rounded-xl p-5 sm:p-6 shadow-lg"
               >
                 <div className="text-sm text-gray-600 mb-2">{item.label}</div>
                 <div className="font-sans text-xl font-bold text-primary-dark">

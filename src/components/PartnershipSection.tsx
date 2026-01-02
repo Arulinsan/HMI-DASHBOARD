@@ -1,73 +1,41 @@
 import { Globe, Award, TrendingUp, Users } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function PartnershipSection() {
-  const partnershipModels = [
-    {
-      icon: Users,
-      title: "International Sales Agent",
-      description:
-        "Represent ALMP in your country with exclusive distribution rights and comprehensive support.",
-      benefits: [
-        "Exclusive territory rights",
-        "Marketing materials",
-        "Competitive commission structure",
-      ],
-    },
-    {
-      icon: Award,
-      title: "Country Representative",
-      description:
-        "Become our official representative and build a strong presence in your market.",
-      benefits: [
-        "Brand authorization",
-        "Priority pricing",
-        "Joint marketing campaigns",
-      ],
-    },
-    {
-      icon: TrendingUp,
-      title: "Joint Promotion Programs",
-      description:
-        "Collaborate on market development initiatives and promotional activities.",
-      benefits: [
-        "Co-marketing support",
-        "Market intelligence",
-        "Flexible terms",
-      ],
-    },
-  ];
+  const { t } = useTranslation();
+  const partnershipModels = t("partnership.models", {
+    returnObjects: true,
+  }) as Array<{ title: string; description: string; benefits: string[] }>;
 
-  const expansionMarkets = [
-    { region: "Middle East", countries: "Saudi Arabia, UAE, Egypt" },
-    { region: "Southeast Asia", countries: "Malaysia, Singapore, Thailand" },
-    { region: "Europe", countries: "Netherlands, Germany, Italy" },
-    { region: "Africa", countries: "South Africa, Kenya, Morocco" },
-  ];
+  const modelIcons = [Users, Award, TrendingUp] as const;
+
+  const expansionMarkets = t("partnership.expansionMarkets", {
+    returnObjects: true,
+  }) as Array<{ region: string; countries: string }>;
 
   return (
-    <section id="partnership" className="py-20 bg-soft-beige">
+    <section id="partnership" className="py-12 md:py-20 bg-soft-beige">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <div className="inline-block bg-accent-green1/10 p-4 rounded-full mb-4">
             <Globe className="w-12 h-12 text-accent-green1" />
           </div>
-          <h2 className="font-sans text-4xl md:text-5xl font-bold text-primary-dark mb-4">
-            International Partnership
+          <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold text-primary-dark mb-4">
+            {t("partnership.title")}
           </h2>
           <div className="w-24 h-1 bg-accent-green1 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Join us in bringing premium Lampung Robusta coffee to markets
-            worldwide
+          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
+            {t("partnership.subtitle")}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 mb-12 md:mb-16">
           {partnershipModels.map((model, index) => {
-            const Icon = model.icon;
+            const Icon = modelIcons[index] ?? Users;
             return (
               <div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="bg-accent-green1 w-14 h-14 rounded-full flex items-center justify-center mb-5">
                   <Icon className="w-7 h-7 text-white" />
@@ -94,9 +62,9 @@ export default function PartnershipSection() {
           })}
         </div>
 
-        <div className="bg-primary-dark rounded-2xl p-8 md:p-12 text-white mb-12">
+        <div className="bg-primary-dark rounded-2xl p-6 sm:p-8 md:p-12 text-white mb-10 md:mb-12">
           <h3 className="font-sans text-3xl font-bold mb-8 text-center">
-            Expansion Markets 2025–2027
+            {t("partnership.expansionTitle")}
           </h3>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {expansionMarkets.map((market, index) => (
@@ -114,32 +82,42 @@ export default function PartnershipSection() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-accent-green1 to-accent-green2 rounded-2xl p-8 md:p-12 text-white">
+        <div className="bg-gradient-to-br from-accent-green1 to-accent-green2 rounded-2xl p-6 sm:p-8 md:p-12 text-white">
           <div className="max-w-3xl mx-auto text-center">
             <h3 className="font-sans text-3xl font-bold mb-6">
-              Why Partner with ALMP?
+              {t("partnership.why.title")}
             </h3>
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8">
               <div>
                 <div className="text-4xl font-bold mb-2 font-sans">48</div>
-                <div className="text-sm text-white/80">Years Experience</div>
+                <div className="text-sm text-white/80">
+                  {t("partnership.why.metrics.years")}
+                </div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2 font-sans">40</div>
-                <div className="text-sm text-white/80">Containers/Month</div>
+                <div className="text-4xl font-bold mb-2 font-sans">150</div>
+                <div className="text-sm text-white/80">
+                  {t("partnership.why.metrics.tonPerDay")}
+                </div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2 font-sans">230</div>
+                <div className="text-sm text-white/80">
+                  {t("partnership.why.metrics.containersPerMonth")}
+                </div>
               </div>
               <div>
                 <div className="text-4xl font-bold mb-2 font-sans">300+</div>
-                <div className="text-sm text-white/80">Partner Farmers</div>
+                <div className="text-sm text-white/80">
+                  {t("partnership.why.metrics.partnerFarmers")}
+                </div>
               </div>
             </div>
             <p className="text-white/90 leading-relaxed mb-8">
-              We offer reliable supply, consistent quality, competitive pricing,
-              and dedicated support to help you succeed in your market. Join our
-              growing network of international partners.
+              {t("partnership.why.blurb")}
             </p>
             <button className="bg-white text-accent-green1 px-10 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Become a Partner
+              {t("partnership.cta")}
             </button>
           </div>
         </div>

@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Coffee } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { setLanguage } from "../i18n";
+import logo from "../assets/image/logo.png";
 
 export default function Navigation() {
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -25,15 +29,20 @@ export default function Navigation() {
   };
 
   const navLinks = [
-    { name: "Home", id: "home" },
-    { name: "About", id: "about" },
-    { name: "Products", id: "products" },
-    { name: "Quality", id: "quality" },
-    { name: "Export Info", id: "export" },
-    { name: "Sustainability", id: "sustainability" },
-    { name: "Partnership", id: "partnership" },
-    { name: "Contact", id: "contact" },
-  ];
+    { key: "nav.home", id: "home" },
+    { key: "nav.about", id: "about" },
+    { key: "nav.products", id: "products" },
+    { key: "nav.quality", id: "quality" },
+    { key: "nav.exportInfo", id: "export" },
+    { key: "nav.sustainability", id: "sustainability" },
+    { key: "nav.partnership", id: "partnership" },
+    { key: "nav.contact", id: "contact" },
+  ] as const;
+
+  const activeLang = i18n.resolvedLanguage === "id" ? "id" : "en";
+  const toggleLanguage = () => {
+    void setLanguage(activeLang === "en" ? "id" : "en");
+  };
 
   return (
     <nav
@@ -44,13 +53,19 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center space-x-3">
-            <Coffee className="w-8 h-8 text-accent-green2" />
+            <img
+              src={logo}
+              alt="ALMP Exports logo"
+              className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+              loading="eager"
+              decoding="async"
+            />
             <div>
-              <h1 className="text-white font-sans text-xl font-bold">
+              <h1 className="text-white font-sans text-lg sm:text-xl font-bold">
                 ALMP Exports
               </h1>
               <p className="text-accent-green2 text-xs">
-                Premium Robusta Coffee
+                {t("footer.tagline")}
               </p>
             </div>
           </div>
@@ -62,9 +77,21 @@ export default function Navigation() {
                 onClick={() => scrollToSection(link.id)}
                 className="text-white hover:text-accent-green2 transition-colors text-sm font-medium"
               >
-                {link.name}
+                {t(link.key)}
               </button>
             ))}
+
+            <div className="flex items-center pl-2 border-l border-white/15">
+              <button
+                type="button"
+                onClick={toggleLanguage}
+                className="text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors bg-white text-primary-dark border-white"
+                aria-label={t("common.language")}
+                title={t("common.language")}
+              >
+                {activeLang.toUpperCase()}
+              </button>
+            </div>
           </div>
 
           <button
@@ -83,13 +110,26 @@ export default function Navigation() {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-primary-dark border-t border-accent-green1/20">
           <div className="px-4 py-4 space-y-3">
+            <div className="flex items-center justify-between pb-3 border-b border-white/10">
+              <div className="text-xs text-white/70">
+                {t("common.language")}
+              </div>
+              <button
+                type="button"
+                onClick={toggleLanguage}
+                className="text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors bg-white text-primary-dark border-white"
+                aria-label={t("common.language")}
+              >
+                {activeLang.toUpperCase()}
+              </button>
+            </div>
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
                 className="block w-full text-left text-white hover:text-accent-green2 py-2 transition-colors"
               >
-                {link.name}
+                {t(link.key)}
               </button>
             ))}
           </div>
