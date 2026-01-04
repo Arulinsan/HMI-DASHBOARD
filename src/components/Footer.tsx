@@ -54,7 +54,7 @@ export default function Footer() {
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2 text-gray-400">
                 <MapPin className="w-4 h-4 text-accent-green2" />
-                <span>Bandar Lampung, Indonesia</span>
+                <span>Menara Karya, Jakarta, Indonesia</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-400">
                 <Mail className="w-4 h-4 text-accent-green2" />

@@ -7,6 +7,27 @@ export default function PartnershipSection() {
     returnObjects: true,
   }) as Array<{ title: string; description: string; benefits: string[] }>;
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
+
+  const openPartnershipForm = (
+    inquiryType: "international_sales" | "international_distributor"
+  ) => {
+    window.dispatchEvent(
+      new CustomEvent<{ inquiryType: string }>("almp:set-inquiry-type", {
+        detail: { inquiryType },
+      })
+    );
+    scrollToSection("contact");
+  };
+
   const modelIcons = [Users, Award, TrendingUp] as const;
 
   const expansionMarkets = t("partnership.expansionMarkets", {
@@ -116,9 +137,20 @@ export default function PartnershipSection() {
             <p className="text-white/90 leading-relaxed mb-8">
               {t("partnership.why.blurb")}
             </p>
-            <button className="bg-white text-accent-green1 px-10 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              {t("partnership.cta")}
-            </button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() => openPartnershipForm("international_sales")}
+                className="bg-white text-accent-green1 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              >
+                {t("partnership.ctaInternationalSales")}
+              </button>
+              <button
+                onClick={() => openPartnershipForm("international_distributor")}
+                className="bg-white/10 text-white border border-white/40 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/15 transition-all transform hover:scale-105 shadow-lg"
+              >
+                {t("partnership.ctaInternationalDistributor")}
+              </button>
+            </div>
           </div>
         </div>
       </div>

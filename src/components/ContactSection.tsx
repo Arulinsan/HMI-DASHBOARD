@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
 import {
@@ -21,6 +21,33 @@ export default function ContactSection() {
     message: "",
     inquiryType: "price_quote",
   });
+
+  useEffect(() => {
+    const onSetInquiryType = (
+      event: Event
+    ) => {
+      const custom = event as CustomEvent<{ inquiryType?: string }>;
+      const inquiryType = custom.detail?.inquiryType;
+      if (!inquiryType) return;
+
+      setFormData((prev) => ({
+        ...prev,
+        inquiryType,
+      }));
+    };
+
+    window.addEventListener(
+      "almp:set-inquiry-type",
+      onSetInquiryType as EventListener
+    );
+
+    return () => {
+      window.removeEventListener(
+        "almp:set-inquiry-type",
+        onSetInquiryType as EventListener
+      );
+    };
+  }, []);
 
   const [isSending, setIsSending] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
@@ -242,6 +269,12 @@ export default function ContactSection() {
                   >
                     <option value="price_quote">
                       {t("contact.inquiry.priceQuote")}
+                    </option>
+                    <option value="international_sales">
+                      {t("contact.inquiry.internationalSales")}
+                    </option>
+                    <option value="international_distributor">
+                      {t("contact.inquiry.internationalDistributor")}
                     </option>
                     <option value="partnership">
                       {t("contact.inquiry.partnership")}

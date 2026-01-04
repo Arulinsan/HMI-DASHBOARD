@@ -11,8 +11,16 @@ import { useTranslation } from "react-i18next";
 export default function HeroSection() {
   const { t, i18n } = useTranslation();
   const isId = i18n.resolvedLanguage === "id";
+  const instagramUrl =
+    (import.meta.env.VITE_INSTAGRAM_URL as string | undefined) ||
+    "https://instagram.com/almp_1976/";
+
   const handleWhatsApp = () => {
     window.open("https://wa.me/6281289458368", "_blank");
+  };
+
+  const handleInstagram = () => {
+    window.open(instagramUrl, "_blank");
   };
 
   const scrollToSection = (id: string) => {
@@ -58,7 +66,7 @@ export default function HeroSection() {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "ALMP-Catalogue.txt";
+    a.download = "ALMP-Company-Profile.txt";
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -146,7 +154,7 @@ export default function HeroSection() {
               </button>
 
               <button
-                onClick={() => scrollToSection("export")}
+                onClick={handleInstagram}
                 className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-accent-green1 hover:bg-accent-green2 text-white px-5 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
               >
                 <DollarSign className="w-5 h-5" />

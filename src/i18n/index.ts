@@ -58,13 +58,13 @@ const resources = {
             "Saudi Arabia, UAE, Egypt, Malaysia, Belgium, Armenia, Ecuador",
         },
         cta: {
-          download: "Download Catalogue",
-          requestPrice: "Request Price",
+          download: "Download Company Profile",
+          requestPrice: "For more information price check our instagram",
           whatsapp: "WhatsApp International Sales",
           viewProducts: "View Products",
         },
         catalogue: {
-          title: "ALMP Exports – Lampung Robusta Coffee Catalogue",
+          title: "ALMP Exports – Company Profile",
           productsLabel: "Products",
           packagingLabel: "Packaging",
           exportPortLabel: "Export Port",
@@ -108,13 +108,13 @@ const resources = {
         mission: "Our Mission",
         vision: "Our Vision",
         missionItems: [
-          "Developing available resources to provide useful and sustainable added value",
-          "Maintaining trust and providing the best and solution oriented services for business partners and the company’s business network",
-          "Forming trustworthy, resilient and growing HR (Human Resources) in a good working environment and atmosphere for employees and the company",
-          "Innovating and contributing well and nobly to the preservation of nature and human civilization",
+          "Developing available resources to provide useful and sustainable added value.",
+          "Maintaining trust and providing the best and solution oriented services for business partners and the company’s business network.",
+          "Forming trustworthy, resilient and growing HR (Human Resources) in a good working environment and atmosphere for employees and the company.",
+          "Innovating and contributing well and nobly to the preservation of nature and human civilization.",
         ],
         visionText:
-          "To become a superior, reliable and trusted global trading company and to create a sustainable, innovative and positively contributing business",
+          "To become a superior, reliable and trusted global trading company and to create a sustainable, innovative and positively contributing business.",
         coreTitle: "Core Business Activities",
         core: {
           trading: "Trading & Export Robusta",
@@ -311,6 +311,8 @@ const resources = {
         title: "International Partnership",
         subtitle: "Partnership opportunities and current expansion targets",
         cta: "Become a Partner",
+        ctaInternationalSales: "International Sales Form",
+        ctaInternationalDistributor: "International Distributor Form",
         models: [
           {
             title: "International Sales Agent",
@@ -396,6 +398,8 @@ const resources = {
         },
         inquiry: {
           priceQuote: "Price Quote",
+          internationalSales: "International Sales",
+          internationalDistributor: "International Distributor",
           partnership: "Partnership Opportunity",
           sampleRequest: "Sample Request",
           general: "General Inquiry",
@@ -480,13 +484,13 @@ const resources = {
             "Saudi Arabia, UAE, Mesir, Malaysia, Belgia, Armenia, Ekuador",
         },
         cta: {
-          download: "Unduh Katalog",
-          requestPrice: "Minta Penawaran Harga",
+          download: "Unduh Profil Perusahaan",
+          requestPrice: "For more information price check our instagram",
           whatsapp: "WhatsApp Penjualan Internasional",
           viewProducts: "Lihat Produk",
         },
         catalogue: {
-          title: "ALMP Exports – Katalog Kopi Robusta Lampung",
+          title: "ALMP Exports – Profil Perusahaan",
           productsLabel: "Produk",
           packagingLabel: "Kemasan",
           exportPortLabel: "Pelabuhan Muat",
@@ -532,13 +536,13 @@ const resources = {
         mission: "Misi",
         vision: "Visi",
         missionItems: [
-          "Mengembangkan sumber daya yang tersedia untuk memberikan nilai tambah yang bermanfaat dan berkelanjutan",
-          "Menjaga kepercayaan serta memberikan layanan terbaik dan berorientasi solusi bagi mitra bisnis dan jaringan usaha perusahaan",
-          "Membentuk SDM yang tepercaya, tangguh, dan terus berkembang dalam lingkungan kerja yang baik untuk karyawan dan perusahaan",
-          "Berinovasi dan berkontribusi secara positif untuk pelestarian alam serta peradaban manusia",
+          "Mengembangkan sumber daya yang tersedia untuk memberikan nilai tambah yang bermanfaat dan berkelanjutan.",
+          "Menjaga kepercayaan serta memberikan layanan terbaik dan berorientasi solusi bagi mitra bisnis dan jaringan usaha perusahaan.",
+          "Membentuk SDM yang tepercaya, tangguh, dan terus berkembang dalam lingkungan kerja yang baik untuk karyawan dan perusahaan.",
+          "Berinovasi dan berkontribusi secara positif untuk pelestarian alam serta peradaban manusia.",
         ],
         visionText:
-          "Menjadi perusahaan perdagangan global yang unggul, andal, dan tepercaya serta menciptakan bisnis yang berkelanjutan, inovatif, dan berkontribusi positif",
+          "Menjadi perusahaan perdagangan global yang unggul, andal, dan tepercaya serta menciptakan bisnis yang berkelanjutan, inovatif, dan berkontribusi positif.",
         coreTitle: "Kegiatan Inti",
         core: {
           trading: "Perdagangan & Ekspor Robusta",
@@ -735,6 +739,8 @@ const resources = {
         title: "Kemitraan Internasional",
         subtitle: "Peluang kemitraan dan target ekspansi saat ini",
         cta: "Menjadi Mitra",
+        ctaInternationalSales: "Form Penjualan Internasional",
+        ctaInternationalDistributor: "Form Distributor Internasional",
         models: [
           {
             title: "Agen Penjualan Internasional",
@@ -817,6 +823,8 @@ const resources = {
         },
         inquiry: {
           priceQuote: "Minta Penawaran Harga",
+          internationalSales: "Penjualan Internasional",
+          internationalDistributor: "Distributor Internasional",
           partnership: "Peluang Kemitraan",
           sampleRequest: "Permintaan Sampel",
           general: "Pertanyaan Umum",

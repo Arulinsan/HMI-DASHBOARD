@@ -58,7 +58,7 @@ export default function Navigation() {
             <img
               src={logo}
               alt="ALMP Exports logo"
-              className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+              className="w-40 h-40 sm:w-20 sm:h-20 object-contain"
               loading="eager"
               decoding="async"
             />
