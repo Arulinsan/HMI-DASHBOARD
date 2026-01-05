@@ -48,36 +48,36 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
         isScrolled ? "bg-primary-dark shadow-lg" : "bg-primary-dark/95"
       }`}
     >
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-10 2xl:px-12">
-        <div className="flex justify-between items-center h-20">
-          <div className="flex items-center space-x-3">
+        <div className="flex items-center h-20">
+          <div className="flex items-center space-x-2">
             <img
               src={logo}
               alt="ALMP Exports logo"
-              className="w-40 h-40 sm:w-20 sm:h-20 object-contain"
+              className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
               loading="eager"
               decoding="async"
             />
-            <div>
+            <div className="text-left">
               <h1 className="text-white font-sans text-lg sm:text-xl font-bold">
                 ALMP Exports
               </h1>
-              <p className="text-accent-green2 text-xs">
+              <p className="hidden sm:block text-accent-green2 text-xs">
                 {t("footer.tagline")}
               </p>
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="ml-auto hidden xl:flex items-center space-x-6">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-white hover:text-accent-green2 transition-colors text-sm font-medium whitespace-nowrap"
+                className="text-white hover:text-accent-green2 transition-colors text-xs 2xl:text-sm font-medium whitespace-nowrap"
               >
                 {t(link.key)}
               </button>
@@ -97,7 +97,7 @@ export default function Navigation() {
           </div>
 
           <button
-            className="lg:hidden text-white"
+            className="ml-auto xl:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -110,7 +110,7 @@ export default function Navigation() {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-primary-dark border-t border-accent-green1/20">
+        <div className="xl:hidden bg-primary-dark border-t border-accent-green1/20">
           <div className="px-4 py-4 space-y-3">
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <div className="text-xs text-white/70">
