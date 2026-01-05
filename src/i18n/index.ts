@@ -43,9 +43,9 @@ const resources = {
         contact: "Contact",
       },
       hero: {
-        pill: "Corporate International Export – Robusta Coffee Lampung",
+        pill: "Corporate International Export – Robusta Coffee Sumatera",
         headline: "Indonesia’s Leading Robusta Coffee Exporter",
-        subHeadline: "Lampung Origin, Export Grade 1–6",
+        subHeadline: "Sumatera Origin, Export Grade 1–6",
         subline:
           "Processing capacity 20–40 containers/month and export capability up to 230 containers/month (by grade), sourced from 300+ partnered farmers across Sumatra.",
         supplyChain: "Rantai Pasok",
@@ -83,10 +83,10 @@ const resources = {
             grade5: "Grade 5 | Max defects ≤120 | Moisture ≤13% | Screen 15–17",
             grade6: "Grade 6 | Max defects ≤150 | Moisture ≤13% | Screen 15–17",
           },
-          productsValue: "Lampung Robusta Grade 1–6",
+          productsValue: "Sumatera Robusta Grade 1–6",
           packagingValue: "60 kg jute bags",
           exportPortValue: "Panjang Port – Bandar Lampung, Indonesia",
-          contactValue: "WhatsApp International Sales +62 812-8945-8368",
+          contactValue: "WhatsApp International Sales +62 857-0413-5213",
         },
       },
       about: {
@@ -97,7 +97,7 @@ const resources = {
         storyP1:
           "PT Andan Laju Mitra Persada (ALMP) is a private company based in Bandar Lampung, Indonesia, specializing in agricultural commodity trading, particularly Robusta coffee.",
         storyP2:
-          "ALMP focuses on international export of Lampung Robusta, developing sustainable supply chains and long-term partnerships with farmer groups.",
+          "ALMP focuses on international export of Sumatera Robusta, developing sustainable supply chains and long-term partnerships with farmer groups.",
         storyP3:
           "Founded on the foundation of trust, integrity, and hard work, ALMP is committed to empowering local farmers, improving post-harvest quality, and bridging Indonesian coffee to global markets.",
         storyP4:
@@ -131,9 +131,9 @@ const resources = {
         },
       },
       products: {
-        title: "Lampung Robusta Coffee Products",
+        title: "Sumatera Robusta Coffee Products",
         subtitle:
-          "Lampung Robusta coffee beans (Grade 1–6) technical specifications",
+          "Sumatera Robusta coffee beans (Grade 1–6) technical specifications",
         cols: {
           grade: "Grade",
           type: "Type",
@@ -434,7 +434,7 @@ const resources = {
       footer: {
         tagline: "Premium Robusta Coffee",
         about:
-          "Indonesia’s leading Robusta coffee exporter, delivering premium Lampung origin beans to global markets since 1976.",
+          "Indonesia’s leading Robusta coffee exporter, delivering premium Sumatera origin beans to global markets since 1976.",
         headings: {
           quickLinks: "Quick Links",
           resources: "Resources",
@@ -470,9 +470,9 @@ const resources = {
         contact: "Kontak",
       },
       hero: {
-        pill: "Ekspor Korporat Internasional – Kopi Robusta Lampung",
+        pill: "Ekspor Korporat Internasional – Kopi Robusta Sumatera",
         headline: "Eksportir Kopi Robusta Terkemuka Indonesia",
-        subHeadline: "Asal Lampung, Grade Ekspor 1–6",
+        subHeadline: "Asal Sumatera, Grade Ekspor 1–6",
         subline:
           "Kapasitas proses 20–40 kontainer/bulan dan kemampuan ekspor hingga 230 kontainer/bulan (berdasarkan grade), bersumber dari 300+ petani mitra di Sumatra.",
         highlights: {
@@ -511,10 +511,10 @@ const resources = {
             grade6:
               "Grade 6 | Defect maks. ≤150 | Kadar air ≤13% | Screen 15–17",
           },
-          productsValue: "Robusta Lampung Grade 1–6",
+          productsValue: "Robusta Sumatera Grade 1–6",
           packagingValue: "Karung goni 60 kg",
           exportPortValue: "Panjang Port – Bandar Lampung, Indonesia",
-          contactValue: "WhatsApp Penjualan Internasional +62 812-8945-8368",
+          contactValue: "WhatsApp Penjualan Internasional +62 857-0413-5213",
         },
       },
       about: {
@@ -525,7 +525,7 @@ const resources = {
         storyP1:
           "PT Andan Laju Mitra Persada (ALMP) adalah perusahaan swasta yang berbasis di Bandar Lampung, Indonesia, bergerak di perdagangan komoditas pertanian khususnya kopi Robusta.",
         storyP2:
-          "ALMP berfokus pada ekspor internasional Robusta Lampung, membangun rantai pasok berkelanjutan serta kemitraan jangka panjang dengan kelompok tani.",
+          "ALMP berfokus pada ekspor internasional Robusta Sumatera, membangun rantai pasok berkelanjutan serta kemitraan jangka panjang dengan kelompok tani.",
         storyP3:
           "Berlandaskan kepercayaan, integritas, dan kerja keras, ALMP berkomitmen memberdayakan petani lokal, meningkatkan kualitas pascapanen, dan menjembatani kopi Indonesia ke pasar global.",
         storyP4:
@@ -559,8 +559,8 @@ const resources = {
         },
       },
       products: {
-        title: "Produk Kopi Robusta Lampung",
-        subtitle: "Spesifikasi teknis Robusta Lampung (Grade 1–6)",
+        title: "Produk Kopi Robusta Sumatera",
+        subtitle: "Spesifikasi teknis Robusta Sumatera (Grade 1–6)",
         cols: {
           grade: "Grade",
           type: "Tipe",
@@ -859,7 +859,7 @@ const resources = {
       footer: {
         tagline: "Kopi Robusta Premium",
         about:
-          "Eksportir kopi Robusta terkemuka Indonesia, menghadirkan biji kopi premium asal Lampung ke pasar global sejak 1976.",
+          "Eksportir kopi Robusta terkemuka Indonesia, menghadirkan biji kopi premium asal Sumatera ke pasar global sejak 1976.",
         headings: {
           quickLinks: "Tautan Cepat",
           resources: "Informasi",

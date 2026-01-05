@@ -6,6 +6,7 @@ import {
   DollarSign,
 } from "lucide-react";
 import heroBg from "../assets/image/bijikopi.webp";
+import companyProfilePdf from "../assets/PROPOSAL-TEKNIS-and-KAPASITAS-PRODUKSI _7.pdf";
 import { useTranslation } from "react-i18next";
 
 export default function HeroSection() {
@@ -16,7 +17,7 @@ export default function HeroSection() {
     "https://instagram.com/almp_1976/";
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/6281289458368", "_blank");
+    window.open("https://wa.me/6285704135213", "_blank");
   };
 
   const handleInstagram = () => {
@@ -34,43 +35,12 @@ export default function HeroSection() {
   };
 
   const handleDownloadCatalogue = () => {
-    const content = [
-      t("hero.catalogue.title"),
-      "",
-      `${t("hero.catalogue.productsLabel")}: ${t(
-        "hero.catalogue.productsValue"
-      )}`,
-      `${t("hero.catalogue.packagingLabel")}: ${t(
-        "hero.catalogue.packagingValue"
-      )}`,
-      `${t("hero.catalogue.exportPortLabel")}: ${t(
-        "hero.catalogue.exportPortValue"
-      )}`,
-      "",
-      t("hero.catalogue.lines.grade1"),
-      t("hero.catalogue.lines.grade2"),
-      t("hero.catalogue.lines.grade3"),
-      t("hero.catalogue.lines.grade4a"),
-      t("hero.catalogue.lines.grade4b"),
-      t("hero.catalogue.lines.grade5"),
-      t("hero.catalogue.lines.grade6"),
-      "",
-      `${t("hero.catalogue.contactLabel")}: ${t(
-        "hero.catalogue.contactValue"
-      )}`,
-      "",
-    ].join("\n");
-
-    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-
     const a = document.createElement("a");
-    a.href = url;
-    a.download = "ALMP-Company-Profile.txt";
+    a.href = companyProfilePdf;
+    a.download = "PROPOSAL-TEKNIS-and-KAPASITAS-PRODUKSI _7.pdf";
     document.body.appendChild(a);
     a.click();
     a.remove();
-    URL.revokeObjectURL(url);
   };
 
   return (
@@ -134,7 +104,7 @@ export default function HeroSection() {
               <div className="bg-white/10 border border-white/10 rounded-lg px-4 py-3">
                 {t("nav.products")}:{" "}
                 <span className="font-semibold text-white">
-                  Lampung Robusta G1–G6
+                  Sumatera Robusta G1–G6
                 </span>
               </div>
               <div className="bg-white/10 border border-white/10 rounded-lg px-4 py-3">
@@ -146,11 +116,11 @@ export default function HeroSection() {
             </div>
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
               <button
-                onClick={handleDownloadCatalogue}
-                className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-white hover:bg-gray-100 text-primary-dark px-5 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+                onClick={handleWhatsApp}
+                className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-5 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
               >
-                <Download className="w-5 h-5" />
-                <span>{t("hero.cta.download")}</span>
+                <MessageCircle className="w-5 h-5" />
+                <span>{t("hero.cta.whatsapp")}</span>
               </button>
 
               <button
@@ -160,15 +130,13 @@ export default function HeroSection() {
                 <DollarSign className="w-5 h-5" />
                 <span>{t("hero.cta.requestPrice")}</span>
               </button>
-
               <button
-                onClick={handleWhatsApp}
-                className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-5 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+                onClick={handleDownloadCatalogue}
+                className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-white hover:bg-gray-100 text-primary-dark px-5 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
               >
-                <MessageCircle className="w-5 h-5" />
-                <span>{t("hero.cta.whatsapp")}</span>
+                <Download className="w-5 h-5" />
+                <span>{t("hero.cta.download")}</span>
               </button>
-
               <button
                 onClick={() => scrollToSection("products")}
                 className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/15 text-white border border-white/10 px-5 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold transition-all"

@@ -23,9 +23,7 @@ export default function ContactSection() {
   });
 
   useEffect(() => {
-    const onSetInquiryType = (
-      event: Event
-    ) => {
+    const onSetInquiryType = (event: Event) => {
       const custom = event as CustomEvent<{ inquiryType?: string }>;
       const inquiryType = custom.detail?.inquiryType;
       if (!inquiryType) return;
@@ -133,7 +131,7 @@ export default function ContactSection() {
     {
       icon: Building,
       title: t("about.hq"),
-      details: ["Bandar Lampung", "Lampung, Indonesia"],
+      details: ["Bandar Lampung", "Sumatera, Indonesia"],
     },
     {
       icon: MapPin,
@@ -153,12 +151,12 @@ export default function ContactSection() {
     {
       icon: Phone,
       title: t("contact.fields.phone"),
-      details: ["+62 812 8945 8368", t("contact.details.whatsappAvailable")],
+      details: ["+62 857-0413-5213", t("contact.details.whatsappAvailable")],
     },
   ];
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/6281289458368", "_blank");
+    window.open("https://wa.me/6285704135213", "_blank");
   };
 
   return (

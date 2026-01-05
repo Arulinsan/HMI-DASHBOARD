@@ -33,7 +33,8 @@ export default function ImageCarousel({ items, className }: Props) {
             src={active.src}
             alt={active.alt}
             className="w-full h-full object-contain"
-            loading="lazy"
+            loading={activeIndex === 0 ? "eager" : "lazy"}
+            decoding="async"
           />
         </div>
 

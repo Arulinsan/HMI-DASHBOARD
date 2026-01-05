@@ -1,11 +1,12 @@
 import { useTranslation } from "react-i18next";
 import ImageCarousel from "./ImageCarousel";
 
-import ek145 from "../assets/image/EK 1 45 defect.jpeg";
-import ek160 from "../assets/image/EK 1 60 defect.jpeg";
-import ek180 from "../assets/image/EK 1 80 defect.jpeg";
-import ek1120 from "../assets/image/EK 1 120 defect.jpeg";
-import ek1150 from "../assets/image/EK 1 150 defect.jpeg";
+import g1 from "../assets/image/G1.png";
+import g2 from "../assets/image/G2.png";
+import g3 from "../assets/image/G3.png";
+import g4 from "../assets/image/G4.png";
+import g5 from "../assets/image/G5.png";
+import g6 from "../assets/image/G6.png";
 
 export default function ProductsSection() {
   const { t } = useTranslation();
@@ -86,29 +87,34 @@ export default function ProductsSection() {
             <ImageCarousel
               items={[
                 {
-                  src: ek145,
-                  alt: "EK1 45 Defects",
-                  caption: "EK1 45 Defects",
+                  src: g1,
+                  alt: "Grade 1 (G1)",
+                  caption: "Grade 1 (G1)",
                 },
                 {
-                  src: ek160,
-                  alt: "EK1 60 Defects",
-                  caption: "EK1 60 Defects",
+                  src: g2,
+                  alt: "Grade 2 (G2)",
+                  caption: "Grade 2 (G2)",
                 },
                 {
-                  src: ek180,
-                  alt: "EK1 80 Defects",
-                  caption: "EK1 80 Defects",
+                  src: g3,
+                  alt: "Grade 3 (G3)",
+                  caption: "Grade 3 (G3)",
                 },
                 {
-                  src: ek1120,
-                  alt: "EK1 120 Defects",
-                  caption: "EK1 120 Defects",
+                  src: g4,
+                  alt: "Grade 4 (G4)",
+                  caption: "Grade 4 (G4)",
                 },
                 {
-                  src: ek1150,
-                  alt: "EK1 150 Defects",
-                  caption: "EK1 150 Defects",
+                  src: g5,
+                  alt: "Grade 5 (G5)",
+                  caption: "Grade 5 (G5)",
+                },
+                {
+                  src: g6,
+                  alt: "Grade 6 (G6)",
+                  caption: "Grade 6 (G6)",
                 },
               ]}
             />
