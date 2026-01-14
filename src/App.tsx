@@ -25,7 +25,10 @@ function App() {
       <PartnershipSection />
       <ContactSection />
       <Footer />
-      <SpeedInsights />
+      <SpeedInsights 
+        route="/"
+        debug={false}
+      />
     </div>
   );
 }
