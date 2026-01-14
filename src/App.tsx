@@ -9,7 +9,6 @@ import SustainabilitySection from "./components/SustainabilitySection";
 import PartnershipSection from "./components/PartnershipSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   return (
@@ -25,10 +24,6 @@ function App() {
       <PartnershipSection />
       <ContactSection />
       <Footer />
-      <SpeedInsights 
-        route="/"
-        debug={false}
-      />
     </div>
   );
 }
