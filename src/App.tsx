@@ -1,14 +1,15 @@
-import Navigation from './components/Navigation';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import ProductsSection from './components/ProductsSection';
-import ProductionSection from './components/ProductionSection';
-import QualitySection from './components/QualitySection';
-import ExportPricingSection from './components/ExportPricingSection';
-import SustainabilitySection from './components/SustainabilitySection';
-import PartnershipSection from './components/PartnershipSection';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
+import Navigation from "./components/Navigation";
+import HeroSection from "./components/HeroSection";
+import AboutSection from "./components/AboutSection";
+import ProductsSection from "./components/ProductsSection";
+import ProductionSection from "./components/ProductionSection";
+import QualitySection from "./components/QualitySection";
+import ExportPricingSection from "./components/ExportPricingSection";
+import SustainabilitySection from "./components/SustainabilitySection";
+import PartnershipSection from "./components/PartnershipSection";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <PartnershipSection />
       <ContactSection />
       <Footer />
+      <SpeedInsights />
     </div>
   );
 }
