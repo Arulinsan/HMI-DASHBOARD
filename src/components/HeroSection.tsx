@@ -17,7 +17,7 @@ export default function HeroSection() {
     "https://instagram.com/almp_1976/";
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/6285704135213", "_blank");
+    window.open("https://wa.me/6281289458368", "_blank");
   };
 
   const handleInstagram = () => {
