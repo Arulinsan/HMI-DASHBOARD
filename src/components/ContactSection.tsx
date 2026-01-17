@@ -36,13 +36,13 @@ export default function ContactSection() {
 
     window.addEventListener(
       "almp:set-inquiry-type",
-      onSetInquiryType as EventListener
+      onSetInquiryType as EventListener,
     );
 
     return () => {
       window.removeEventListener(
         "almp:set-inquiry-type",
-        onSetInquiryType as EventListener
+        onSetInquiryType as EventListener,
       );
     };
   }, []);
@@ -90,7 +90,7 @@ export default function ContactSection() {
           inquiry_type: formData.inquiryType,
           message: formData.message,
         },
-        publicKey
+        publicKey,
       );
 
       setSubmitStatus({
@@ -119,7 +119,7 @@ export default function ContactSection() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     setFormData({
       ...formData,
@@ -151,12 +151,12 @@ export default function ContactSection() {
     {
       icon: Phone,
       title: t("contact.fields.phone"),
-      details: ["+62 857-0413-5213", t("contact.details.whatsappAvailable")],
+      details: ["+62 812-8945-8368", t("contact.details.whatsappAvailable")],
     },
   ];
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/6285704135213", "_blank");
+    window.open("https://wa.me/6281289458368", "_blank");
   };
 
   return (

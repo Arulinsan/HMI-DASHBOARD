@@ -9,6 +9,7 @@ import SustainabilitySection from "./components/SustainabilitySection";
 import PartnershipSection from "./components/PartnershipSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <PartnershipSection />
       <ContactSection />
       <Footer />
+      <Analytics />
     </div>
   );
 }
