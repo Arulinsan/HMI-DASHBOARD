@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div className="min-h-screen">
-      {/* <Navigation />
+      <Navigation />
       <HeroSection />
       <AboutSection />
       <ProductsSection />
@@ -25,7 +25,7 @@ function App() {
       <PartnershipSection />
       <ContactSection />
       <Footer />
-      <Analytics /> */}
+      <Analytics />
     </div>
   );
 }
