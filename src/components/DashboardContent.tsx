@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 // Mock Data
 const initialData = [
-  { id: 1, nama: 'Ahmad Budi', komisariat: 'Komisariat Teknik', status: 'LK1', indikator: '-' },
-  { id: 2, nama: 'Siti Aisyah', komisariat: 'Komisariat FISIP', status: 'LK1', indikator: 'LKK' },
-  { id: 3, nama: 'Reza Rahadian', komisariat: 'Komisariat FKIP', status: 'LK2', indikator: 'SC' },
-  { id: 4, nama: 'Nurul Hidayah', komisariat: 'Komisariat Teknik', status: 'LK1', indikator: 'LKK' },
-  { id: 5, nama: 'Fajar Kurniawan', komisariat: 'Komisariat Hukum', status: 'LK3', indikator: 'SC' },
+  { id: 1, nama: 'Ahmad Budi', komisariat: 'Komisariat Teknik', status: 'LK1', angkatan: '2023' },
+  { id: 2, nama: 'Siti Aisyah', komisariat: 'Komisariat FISIP', status: 'LK1', angkatan: '2024' },
+  { id: 3, nama: 'Reza Rahadian', komisariat: 'Komisariat FKIP', status: 'LK2', angkatan: '2022' },
+  { id: 4, nama: 'Nurul Hidayah', komisariat: 'Komisariat Teknik', status: 'LK1', angkatan: '2024' },
+  { id: 5, nama: 'Fajar Kurniawan', komisariat: 'Komisariat Hukum', status: 'LK3', angkatan: '2021' },
 ];
 
 const dashboardStats = {
@@ -14,16 +14,24 @@ const dashboardStats = {
   lk1: 70,
   lk2: 30,
   lk3: 20,
+  bulanIni: 5,
 };
 
 const DashboardContent: React.FC = () => {
   const [data] = useState(initialData);
   const [filterKomi, setFilterKomi] = useState('Semua');
+  const [filterStatus, setFilterStatus] = useState('Semua');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const filteredData = filterKomi === 'Semua' 
-    ? data 
-    : data.filter(d => d.komisariat === filterKomi);
+  const filteredData = data.filter(d => {
+    const matchKomi = filterKomi === 'Semua' || d.komisariat === filterKomi;
+    const matchStatus = filterStatus === 'Semua' || d.status === filterStatus;
+    return matchKomi && matchStatus;
+  });
+
+  const scrollToTable = () => {
+    document.getElementById('data-kader-table')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -36,13 +44,20 @@ const DashboardContent: React.FC = () => {
 
   return (
     <div className="flex-1 overflow-y-auto bg-gray-50 relative">
-      {/* Topbar / Hero Section Promo (Foto Pengurus/KAHMI Placeholder) */}
+      {/* Hero Section */}
       <div className="bg-gradient-to-r from-[#008000] to-green-500 pt-12 pb-40 px-8 relative overflow-hidden flex flex-col items-center justify-center text-center">
-        {/* Decorative elements representing photo placeholder area */}
         <div className="absolute inset-0 bg-black/10 z-0"></div>
-        <div className="relative z-10 w-full max-w-4xl border-2 border-dashed border-white/40 rounded-xl py-12 flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm">
-          <span className="text-white font-semibold text-lg mb-2">Area Foto Pengurus & KAHMI</span>
-          <span className="text-white/80 text-sm">(Akan ditambahkan menyusul)</span>
+        <div className="relative z-10 w-full max-w-3xl">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Sistem Database Kader HMI Cabang
+          </h1>
+          <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Kelola data kader, komisariat, dan progres kaderisasi dalam satu dashboard.
+          </p>
+          <div className="mt-8 w-full max-w-4xl mx-auto border-2 border-dashed border-white/30 rounded-xl py-8 flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm">
+            <span className="text-white/90 font-medium text-sm mb-1">Area Foto Pengurus & KAHMI</span>
+            <span className="text-white/60 text-xs">(Akan ditambahkan menyusul)</span>
+          </div>
         </div>
       </div>
 
@@ -51,7 +66,8 @@ const DashboardContent: React.FC = () => {
         <div className="bg-white rounded-xl shadow-lg p-8 py-10 flex justify-around text-center divide-x divide-gray-100 max-w-5xl mx-auto">
           <div className="px-4 w-1/4">
             <p className="text-5xl font-bold text-[#008000] mb-2">{dashboardStats.total}</p>
-            <p className="text-gray-500 text-sm font-medium">Total Kader</p>
+            <p className="text-gray-500 text-sm font-medium">Total Kader Aktif</p>
+            <p className="text-[#008000] text-xs font-medium mt-1">+{dashboardStats.bulanIni} bulan ini</p>
           </div>
           <div className="px-4 w-1/4">
             <p className="text-5xl font-bold text-blue-500 mb-2">{dashboardStats.lk1}</p>
@@ -68,55 +84,45 @@ const DashboardContent: React.FC = () => {
         </div>
       </div>
 
-      {/* Section 1: Lorem Ipsum Central Block (Like the Marketplace logos section) */}
-      <div className="px-8 mb-16 max-w-5xl mx-auto text-center">
-        <h2 className="text-gray-600 mb-8 font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mendukung 20+ fitur pengelolaan.</h2>
-        <div className="flex flex-wrap justify-center gap-6 opacity-30 grayscale pointer-events-none">
-          {/* Placeholder for logos to match the visual vibe */}
-          <div className="h-8 w-24 bg-gray-400 rounded"></div>
-          <div className="h-8 w-24 bg-gray-400 rounded"></div>
-          <div className="h-8 w-24 bg-gray-400 rounded"></div>
-          <div className="h-8 w-24 bg-gray-400 rounded"></div>
-          <div className="h-8 w-24 bg-gray-400 rounded"></div>
-        </div>
-        <h2 className="text-2xl font-bold text-gray-800 mt-12 max-w-2xl mx-auto">
-          Lorem Ipsum Dolor Sit Amet Menyediakan Solusi Pengelolaan Kader Hanya dengan Satu Sistem!
-        </h2>
-      </div>
-
-      {/* Section 2: Split Layout (Right Illustration) */}
+      {/* Section 1: Kelola Data Kader */}
       <div className="bg-[#EAF6F6] py-16 px-8 mb-16">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Pengelolaan Data Kader</h3>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">Kelola Data Kader Lebih Rapi</h3>
             <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Input, edit, dan pantau data kader secara terpusat dan real-time.
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex gap-3 items-start">
                 <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">Scrape dan Salin Massal Produk dan Perluas Bisnis ke e-Commerce Berbeda dengan Satu Klik.</p>
+                <p className="text-sm text-gray-700">Tambah dan edit data kader</p>
               </li>
               <li className="flex gap-3 items-start">
                 <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">AI yang Membantu Edit Massal Informasi Produk dan Meningkatkan Penjualan.</p>
+                <p className="text-sm text-gray-700">Filter berdasarkan komisariat</p>
               </li>
               <li className="flex gap-3 items-start">
                 <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">Sinkronisasi dan Pengelolaan Informasi Produk Antara Marketplace dan Toko Secara Real Time.</p>
+                <p className="text-sm text-gray-700">Data mudah dicari</p>
               </li>
             </ul>
             <div className="flex gap-4">
-              <button className="bg-[#41429B] hover:bg-[#343580] text-white font-medium py-2 px-6 rounded-md text-sm transition-colors">
-                Daftar Gratis
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-[#41429B] hover:bg-[#343580] text-white font-medium py-2 px-6 rounded-md text-sm transition-colors"
+              >
+                + Tambah Kader
               </button>
-              <button className="border border-gray-400 text-gray-700 hover:bg-gray-50 font-medium py-2 px-6 rounded-md text-sm transition-colors bg-white">
-                Ajukan Demo
+              <button
+                onClick={scrollToTable}
+                className="border border-gray-400 text-gray-700 hover:bg-gray-50 font-medium py-2 px-6 rounded-md text-sm transition-colors bg-white"
+              >
+                Lihat Data Kader
               </button>
             </div>
           </div>
           <div className="flex-1 w-full flex justify-center">
-            {/* Placeholder graphic to match the blue right box */}
+            {/* Placeholder graphic */}
             <div className="w-full max-w-sm h-64 bg-[#00A3FF] rounded-xl shadow-lg relative flex overflow-hidden">
               <div className="w-1/3 bg-[#0CAFFF] h-full flex flex-col gap-4 items-center justify-center p-4">
                 <div className="w-8 h-8 rounded-full bg-white opacity-50"></div>
@@ -132,39 +138,45 @@ const DashboardContent: React.FC = () => {
         </div>
       </div>
 
-      {/* Section 3: Split Layout (Left Illustration) */}
+      {/* Section 2: Pantau Progres Kaderisasi */}
       <div className="bg-[#F5EDFF] py-16 px-8 mb-16">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
           <div className="flex-1">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Pengelolaan dan Proses Data</h3>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">Pantau Progres Kaderisasi</h3>
             <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+              Lihat perkembangan kader dari LK1 hingga LK3.
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex gap-3 items-start">
                 <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">Permudah Proses dan Cetak Label Pengiriman Massal, Efisiensi Penyelesaian Pesanan Meningkat 60%.</p>
+                <p className="text-sm text-gray-700">Status kaderisasi</p>
               </li>
               <li className="flex gap-3 items-start">
                 <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">Template Kustomisasi Label Pengiriman, Label Produk dan Invoice (Tampilkan Logo, Kode QR dan Lainnya).</p>
+                <p className="text-sm text-gray-700">Distribusi per komisariat</p>
               </li>
               <li className="flex gap-3 items-start">
                 <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">Pantau Pesanan Pengembalian COD, Mencegah Paket Hilang dan Percepat Proses Pengembalian Stok.</p>
+                <p className="text-sm text-gray-700">Rekap evaluasi cabang</p>
               </li>
             </ul>
             <div className="flex gap-4">
-              <button className="bg-[#41429B] hover:bg-[#343580] text-white font-medium py-2 px-6 rounded-md text-sm transition-colors">
-                Daftar Gratis
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-[#41429B] hover:bg-[#343580] text-white font-medium py-2 px-6 rounded-md text-sm transition-colors"
+              >
+                + Tambah Kader
               </button>
-              <button className="border border-gray-400 text-gray-700 hover:bg-gray-50 font-medium py-2 px-6 rounded-md text-sm transition-colors bg-white">
-                Ajukan Demo
+              <button
+                onClick={scrollToTable}
+                className="border border-gray-400 text-gray-700 hover:bg-gray-50 font-medium py-2 px-6 rounded-md text-sm transition-colors bg-white"
+              >
+                Lihat Data Kader
               </button>
             </div>
           </div>
           <div className="flex-1 w-full flex justify-center">
-             {/* Placeholder graphic to match the purple left box */}
+             {/* Placeholder graphic */}
              <div className="w-full max-w-sm h-64 bg-[#B07BFF] rounded-xl shadow-lg relative p-4 flex flex-col justify-center gap-4">
                 <div className="w-full flex gap-4">
                   <div className="w-1/2 h-24 bg-white rounded shadow-sm"></div>
@@ -176,8 +188,8 @@ const DashboardContent: React.FC = () => {
         </div>
       </div>
 
-      {/* Keep the Dashboard Table at the bottom as per original specs */}
-      <div className="px-8 pb-16 max-w-5xl mx-auto">
+      {/* Data Kader Terbaru */}
+      <div id="data-kader-table" className="px-8 pb-16 max-w-5xl mx-auto">
         <div className="flex justify-between items-center mb-6">
           <button 
             onClick={() => setIsModalOpen(true)}
@@ -186,9 +198,9 @@ const DashboardContent: React.FC = () => {
             + Tambah Kader
           </button>
           
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center flex-wrap gap-2">
             <span className="text-sm text-gray-500">Filter:</span>
-            <select 
+            <select
               className="border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-[#008000]"
               value={filterKomi}
               onChange={(e) => setFilterKomi(e.target.value)}
@@ -199,14 +211,27 @@ const DashboardContent: React.FC = () => {
               <option value="Komisariat FKIP">FKIP</option>
               <option value="Komisariat Hukum">Hukum</option>
             </select>
+            <select
+              className="border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-[#008000]"
+              value={filterStatus}
+              onChange={(e) => setFilterStatus(e.target.value)}
+            >
+              <option value="Semua">Semua Status</option>
+              <option value="LK1">LK1</option>
+              <option value="LK2">LK2</option>
+              <option value="LK3">LK3</option>
+            </select>
           </div>
         </div>
 
         {/* Data Preview */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
-            <h2 className="font-bold text-gray-800">Preview Data Kader</h2>
-            <button className="text-sm text-[#008000] hover:underline font-medium">
+            <h2 className="font-bold text-gray-800">Data Kader Terbaru</h2>
+            <button
+              onClick={scrollToTable}
+              className="text-sm text-[#008000] hover:underline font-medium"
+            >
               Lihat Semua
             </button>
           </div>
@@ -217,7 +242,7 @@ const DashboardContent: React.FC = () => {
                   <th className="px-6 py-3">Nama</th>
                   <th className="px-6 py-3">Komisariat</th>
                   <th className="px-6 py-3">Status Kaderisasi</th>
-                  <th className="px-6 py-3">Indikator Khusus</th>
+                  <th className="px-6 py-3">Angkatan</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -230,25 +255,13 @@ const DashboardContent: React.FC = () => {
                         {row.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4">
-                      {row.indikator !== '-' ? (
-                        <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                          row.indikator === 'LKK' 
-                            ? 'bg-pink-100 text-pink-700' 
-                            : 'bg-indigo-100 text-indigo-700'
-                        }`}>
-                          {row.indikator}
-                        </span>
-                      ) : (
-                        <span className="text-gray-400 font-medium">-</span>
-                      )}
-                    </td>
+                    <td className="px-6 py-4 text-gray-600">{row.angkatan}</td>
                   </tr>
                 ))}
                 {filteredData.length === 0 && (
                   <tr>
                     <td colSpan={4} className="px-6 py-8 text-center text-gray-500">
-                      Tidak ada data untuk komisariat ini.
+                      Tidak ada data yang sesuai filter.
                     </td>
                   </tr>
                 )}
