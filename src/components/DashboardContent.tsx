@@ -106,20 +106,7 @@ const DashboardContent: React.FC = () => {
                 <p className="text-sm text-gray-700">Data mudah dicari</p>
               </li>
             </ul>
-            <div className="flex gap-4">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-[#41429B] hover:bg-[#343580] text-white font-medium py-2 px-6 rounded-md text-sm transition-colors"
-              >
-                + Tambah Kader
-              </button>
-              <button
-                onClick={scrollToTable}
-                className="border border-gray-400 text-gray-700 hover:bg-gray-50 font-medium py-2 px-6 rounded-md text-sm transition-colors bg-white"
-              >
-                Lihat Data Kader
-              </button>
-            </div>
+
           </div>
           <div className="flex-1 w-full flex justify-center">
             {/* Placeholder graphic */}
@@ -160,20 +147,7 @@ const DashboardContent: React.FC = () => {
                 <p className="text-sm text-gray-700">Rekap evaluasi cabang</p>
               </li>
             </ul>
-            <div className="flex gap-4">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-[#41429B] hover:bg-[#343580] text-white font-medium py-2 px-6 rounded-md text-sm transition-colors"
-              >
-                + Tambah Kader
-              </button>
-              <button
-                onClick={scrollToTable}
-                className="border border-gray-400 text-gray-700 hover:bg-gray-50 font-medium py-2 px-6 rounded-md text-sm transition-colors bg-white"
-              >
-                Lihat Data Kader
-              </button>
-            </div>
+
           </div>
           <div className="flex-1 w-full flex justify-center">
              {/* Placeholder graphic */}
@@ -191,12 +165,7 @@ const DashboardContent: React.FC = () => {
       {/* Data Kader Terbaru */}
       <div id="data-kader-table" className="px-8 pb-16 max-w-5xl mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <button 
-            onClick={() => setIsModalOpen(true)}
-            className="bg-[#008000] hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md shadow transition-colors"
-          >
-            + Tambah Kader
-          </button>
+  
           
           <div className="flex items-center flex-wrap gap-2">
             <span className="text-sm text-gray-500">Filter:</span>
