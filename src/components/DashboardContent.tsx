@@ -85,7 +85,7 @@ const DashboardContent: React.FC = () => {
       </div>
 
       {/* Section 1: Kelola Data Kader */}
-      <div className="bg-[#EAF6F6] py-16 px-8 mb-16">
+      <div className="bg-[#EAF6F6] py-16 px-8 mb-4">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Kelola Data Kader Lebih Rapi</h3>
@@ -126,7 +126,7 @@ const DashboardContent: React.FC = () => {
       </div>
 
       {/* Section 2: Pantau Progres Kaderisasi */}
-      <div className="bg-[#F5EDFF] py-16 px-8 mb-16">
+      <div className="bg-[#F5EDFF] py-16 px-8 mb-8">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
           <div className="flex-1">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Pantau Progres Kaderisasi</h3>
