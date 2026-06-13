@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import DashboardContent from './components/DashboardContent';
+import SplashScreen from './components/splash_screen';
 
 function App() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
+
+  if (showSplash) {
+    return <SplashScreen onFinish={() => setShowSplash(false)} />;
+  }
 
   return (
-<div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
