@@ -34,12 +34,16 @@ const DashboardContent: React.FC = () => {
     document.getElementById('data-kader-table')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status:string) => {
     switch (status) {
-      case 'LK1': return 'bg-blue-100 text-blue-800';
-      case 'LK2': return 'bg-yellow-100 text-yellow-800';
-      case 'LK3': return 'bg-green-100 text-green-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case "LK1":
+        return "bg-sky-100 text-sky-700";
+      case "LK2":
+        return "bg-amber-100 text-amber-700";
+      case "LK3":
+        return "bg-emerald-100 text-emerald-700";
+      default:
+        return "bg-gray-100 text-gray-700";
     }
   };
 
@@ -178,147 +182,121 @@ const DashboardContent: React.FC = () => {
       </div>
 
       {/* Data Kader Terbaru */}
-      <div id="data-kader-table" className="px-8 pb-16 max-w-5xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
-  
-          
-          <div className="flex items-center flex-wrap gap-2">
-            <span className="text-sm text-gray-500">Filter:</span>
-            <select
-              className="border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-[#008000]"
-              value={filterKomi}
-              onChange={(e) => setFilterKomi(e.target.value)}
-            >
-              <option value="Semua">Semua Komisariat</option>
-              <option value="Komisariat Teknik">Teknik</option>
-              <option value="Komisariat FISIP">FISIP</option>
-              <option value="Komisariat FKIP">FKIP</option>
-              <option value="Komisariat Hukum">Hukum</option>
-            </select>
-            <select
-              className="border border-gray-300 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-[#008000]"
-              value={filterStatus}
-              onChange={(e) => setFilterStatus(e.target.value)}
-            >
-              <option value="Semua">Semua Status</option>
-              <option value="LK1">LK1</option>
-              <option value="LK2">LK2</option>
-              <option value="LK3">LK3</option>
-            </select>
-          </div>
-        </div>
+      
+      <div id="data-kader-table" className="max-w-7xl mx-auto px-6 pb-16">
+  <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
 
-        {/* Data Preview */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
-            <h2 className="font-bold text-gray-800">Data Kader Terbaru</h2>
-            <button
-              onClick={scrollToTable}
-              className="text-sm text-[#008000] hover:underline font-medium"
-            >
-              Lihat Semua
-            </button>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm text-left">
-              <thead className="bg-gray-50 text-gray-600">
-                <tr>
-                  <th className="px-6 py-3">Nama</th>
-                  <th className="px-6 py-3">Komisariat</th>
-                  <th className="px-6 py-3">Status Kaderisasi</th>
-                  <th className="px-6 py-3">Angkatan</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {filteredData.map((row) => (
-                  <tr key={row.id} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-6 py-4 font-medium text-gray-800">{row.nama}</td>
-                    <td className="px-6 py-4 text-gray-600">{row.komisariat}</td>
-                    <td className="px-6 py-4">
-                      <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${getStatusColor(row.status)}`}>
-                        {row.status}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-gray-600">{row.angkatan}</td>
-                  </tr>
-                ))}
-                {filteredData.length === 0 && (
-                  <tr>
-                    <td colSpan={4} className="px-6 py-8 text-center text-gray-500">
-                      Tidak ada data yang sesuai filter.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
+    {/* Header */}
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 px-6 py-5 border-b border-gray-100">
+      <div>
+        <h2 className="text-xl font-bold text-gray-800">
+          Data Kader Terbaru
+        </h2>
+        <p className="text-sm text-gray-500 mt-1">
+          Menampilkan daftar kader berdasarkan filter yang dipilih.
+        </p>
       </div>
 
-      {/* Modal Tambah Kader (MVP) */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden">
-            <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
-              <h3 className="font-bold text-lg text-gray-800">Tambah Kader Baru</h3>
-              <button 
-                onClick={() => setIsModalOpen(false)}
-                className="text-gray-400 hover:text-gray-600"
-              >
-                &times;
-              </button>
-            </div>
-            <div className="p-6 space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-                <input type="text" className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-1 focus:ring-[#008000]" placeholder="Masukkan nama" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Komisariat</label>
-                <select className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-1 focus:ring-[#008000]">
-                  <option>Pilih Komisariat</option>
-                  <option>Teknik</option>
-                  <option>FISIP</option>
-                  <option>FKIP</option>
-                  <option>Hukum</option>
-                </select>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Status Kaderisasi</label>
-                  <select className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-1 focus:ring-[#008000]">
-                    <option>LK1</option>
-                    <option>LK2</option>
-                    <option>LK3</option>
-                  </select>
+      <div className="flex flex-wrap gap-2">
+        <select
+          value={filterKomi}
+          onChange={(e) => setFilterKomi(e.target.value)}
+          className="h-10 rounded-lg border border-gray-200 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-green-600"
+        >
+          <option value="Semua">Semua Komisariat</option>
+          <option value="Komisariat Teknik">Teknik</option>
+          <option value="Komisariat FISIP">FISIP</option>
+          <option value="Komisariat FKIP">FKIP</option>
+          <option value="Komisariat Hukum">Hukum</option>
+        </select>
+
+        <select
+          value={filterStatus}
+          onChange={(e) => setFilterStatus(e.target.value)}
+          className="h-10 rounded-lg border border-gray-200 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-green-600"
+        >
+          <option value="Semua">Semua Status</option>
+          <option value="LK1">LK1</option>
+          <option value="LK2">LK2</option>
+          <option value="LK3">LK3</option>
+        </select>
+
+        <button
+          onClick={scrollToTable}
+          className="h-10 px-4 rounded-lg bg-green-700 text-white text-sm hover:bg-green-800 transition"
+        >
+          Lihat Semua
+        </button>
+      </div>
+    </div>
+
+    {/* Table */}
+    <div className="overflow-x-auto">
+      <table className="w-full">
+        <thead>
+          <tr className="bg-gray-50 text-left text-xs uppercase tracking-wider text-gray-500">
+            <th className="px-6 py-4">Nama</th>
+            <th className="px-6 py-4">Komisariat</th>
+            <th className="px-6 py-4">Status</th>
+            <th className="px-6 py-4">Angkatan</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {filteredData.map((row) => (
+            <tr
+              key={row.id}
+              className="border-t border-gray-100 hover:bg-gray-50 transition"
+            >
+              <td className="px-6 py-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center font-semibold text-green-700">
+                    {row.nama.charAt(0)}
+                  </div>
+
+                  <div>
+                    <p className="font-semibold text-gray-800">
+                      {row.nama}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Indikator Khusus</label>
-                  <select className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-1 focus:ring-[#008000]">
-                    <option value="-">- Tidak Ada -</option>
-                    <option value="LKK">LKK</option>
-                    <option value="SC">SC</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div className="px-6 py-4 bg-gray-50 flex justify-end space-x-2">
-              <button 
-                onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
+              </td>
+
+              <td className="px-6 py-5 text-gray-600">
+                {row.komisariat}
+              </td>
+
+              <td className="px-6 py-5">
+                <span
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${getStatusColor(
+                    row.status
+                  )}`}
+                >
+                  {row.status}
+                </span>
+              </td>
+
+              <td className="px-6 py-5 text-gray-600">
+                {row.angkatan}
+              </td>
+            </tr>
+          ))}
+
+          {filteredData.length === 0 && (
+            <tr>
+              <td
+                colSpan={4}
+                className="py-12 text-center text-gray-400"
               >
-                Batal
-              </button>
-              <button 
-                onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-[#008000] text-white rounded-md hover:bg-green-700 transition-colors"
-              >
-                Simpan
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+                Tidak ada data yang sesuai filter.
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
     </div>
   );
 };
