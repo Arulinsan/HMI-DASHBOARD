@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import PengurusKahmiGallery, { placeholderPengurusKahmiRows } from './PengurusKahmiGallery';
-
+import sriBaduga from "../assets/image/sribaduga.jpeg";
+import anggotaHmi from "../assets/image/anggota_hmi.jpeg";
+import hmiFlag from "../assets/image/HMI_indo.png";
+import teaching from "../assets/image/teacher.png";
 // Mock Data
 const initialData = [
   { id: 1, nama: 'Ahmad Budi', komisariat: 'Komisariat Teknik', status: 'LK1', angkatan: '2023' },
@@ -48,52 +51,108 @@ const DashboardContent: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto bg-gray-50 relative">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#008000] to-green-500 pt-10 pb-36 px-8 relative overflow-hidden flex flex-col items-center justify-center text-center">
-        <div className="absolute inset-0 bg-black/10 z-0"></div>
-        <div className="relative z-10 w-full max-w-4xl">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Sistem Database Kader HMI Cabang
-          </h1>
-          <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Kelola data kader, komisariat, dan progres kaderisasi dalam satu dashboard.
-          </p>
-          <div className="mt-8 space-y-4 w-full max-w-4xl mx-auto">
-            <div className="border-2 border-dashed border-white/30 rounded-xl py-8 flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm">
-              <span className="text-white/90 font-medium text-sm mb-1">Area Foto Pengurus & KAHMI</span>
-              <span className="text-white/60 text-xs">(Akan ditambahkan menyusul)</span>
-            </div>
-            <div className="border-2 border-dashed border-white/30 rounded-xl py-8 flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm">
-              <span className="text-white/90 font-medium text-sm mb-1">Area Banner & Profil Cabang</span>
-              <span className="text-white/60 text-xs">(Akan ditambahkan menyusul)</span>
-            </div>
-          </div>
-        </div>
+    <div className="flex-1 overflow-y-auto bg-gray-50">
+
+  {/* ================= HERO SECTION ================= */}
+  <div
+    className="relative bg-cover bg-center bg-no-repeat pt-16 pb-40 px-8 text-center"
+    style={{
+      backgroundImage: `url(${sriBaduga})`,
+    }}
+  >
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-green-900/70"></div>
+
+    <div className="relative z-10 max-w-4xl mx-auto">
+      <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        Sistem Database Kader HMI Cabang
+      </h1>
+
+      <p className="text-lg text-white/90 leading-relaxed max-w-2xl mx-auto">
+        Kelola data kader, komisariat, dan progres kaderisasi
+        secara terpusat dalam satu dashboard yang modern,
+        cepat, dan mudah digunakan.
+      </p>
+    </div>
+  </div>
+
+  {/* ================= SUMMARY CARD ================= */}
+  <div className="max-w-6xl mx-auto px-6 sm:px-8 -mt-20 relative z-20 mb-10">
+
+    <div className="bg-white rounded-2xl shadow-xl grid grid-cols-2 md:grid-cols-4">
+
+      <div className="py-8 text-center border-r border-b md:border-b-0">
+        <h2 className="text-5xl font-bold text-green-600">
+          {dashboardStats.total}
+        </h2>
+        <p className="mt-2 text-gray-500 text-sm">
+          Total Kader Aktif
+        </p>
+        <p className="text-xs text-green-600 mt-1">
+          +{dashboardStats.bulanIni} bulan ini
+        </p>
       </div>
 
-      {/* Summary Cards overlapping the hero background */}
-      <div className="px-6 sm:px-8 -mt-16 mb-6 relative z-20 max-w-6xl mx-auto">
-        <div className="bg-white rounded-xl shadow-lg p-8 py-10 flex justify-around text-center divide-x divide-gray-100 w-full">
-          <div className="px-4 w-1/4">
-            <p className="text-5xl font-bold text-[#008000] mb-2">{dashboardStats.total}</p>
-            <p className="text-gray-500 text-sm font-medium">Total Kader Aktif</p>
-            <p className="text-[#008000] text-xs font-medium mt-1">+{dashboardStats.bulanIni} bulan ini</p>
-          </div>
-          <div className="px-4 w-1/4">
-            <p className="text-5xl font-bold text-blue-500 mb-2">{dashboardStats.lk1}</p>
-            <p className="text-gray-500 text-sm font-medium">LK1</p>
-          </div>
-          <div className="px-4 w-1/4">
-            <p className="text-5xl font-bold text-yellow-500 mb-2">{dashboardStats.lk2}</p>
-            <p className="text-gray-500 text-sm font-medium">LK2</p>
-          </div>
-          <div className="px-4 w-1/4">
-            <p className="text-5xl font-bold text-green-600 mb-2">{dashboardStats.lk3}</p>
-            <p className="text-gray-500 text-sm font-medium">LK3</p>
-          </div>
-        </div>
+      <div className="py-8 text-center border-b md:border-b-0 md:border-r">
+        <h2 className="text-5xl font-bold text-blue-500">
+          {dashboardStats.lk1}
+        </h2>
+        <p className="mt-2 text-gray-500 text-sm">
+          LK I
+        </p>
       </div>
+
+      <div className="py-8 text-center border-r">
+        <h2 className="text-5xl font-bold text-yellow-500">
+          {dashboardStats.lk2}
+        </h2>
+        <p className="mt-2 text-gray-500 text-sm">
+          LK II
+        </p>
+      </div>
+
+      <div className="py-8 text-center">
+        <h2 className="text-5xl font-bold text-emerald-600">
+          {dashboardStats.lk3}
+        </h2>
+        <p className="mt-2 text-gray-500 text-sm">
+          LK III
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  {/* ================= FOTO PELANTIKAN ================= */}
+  <div className="max-w-6xl mx-auto px-6 sm:px-8 mb-10">
+
+    <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+
+      <img
+        src={anggotaHmi}
+        alt="Pelantikan Pengurus HMI"
+        className="w-full h-[420px] object-cover"
+      />
+
+      <div className="p-8">
+
+        <h2 className="text-2xl font-bold text-gray-800 mb-3">
+          Dokumentasi Pelantikan Pengurus HMI Cabang
+        </h2>
+
+        <p className="text-gray-600 leading-7">
+          Dokumentasi kegiatan pelantikan pengurus sebagai bagian
+          dari proses kaderisasi, regenerasi kepemimpinan, dan
+          penguatan organisasi HMI Cabang. Foto ini menjadi
+          representasi aktivitas dan perjalanan organisasi dalam
+          membangun kader yang berkualitas.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
 
       {/* Pengurus & KAHMI Gallery */}
       <div className="px-6 sm:px-8 mb-10 relative z-10 max-w-6xl mx-auto">
@@ -104,82 +163,64 @@ const DashboardContent: React.FC = () => {
       </div>
 
       {/* Section 1: Kelola Data Kader */}
-      <div className="bg-[#EAF6F6] py-16 px-8 mb-4">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Kelola Data Kader Lebih Rapi</h3>
-            <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-              Input, edit, dan pantau data kader secara terpusat dan real-time.
-            </p>
-            <ul className="space-y-4 mb-8">
-              <li className="flex gap-3 items-start">
-                <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">Tambah dan edit data kader</p>
-              </li>
-              <li className="flex gap-3 items-start">
-                <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">Filter berdasarkan komisariat</p>
-              </li>
-              <li className="flex gap-3 items-start">
-                <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">Data mudah dicari</p>
-              </li>
-            </ul>
+      <div className="bg-[#EAF6F6] py-20 px-8">
+  <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+    {/* Text */}
+    <div className="flex-1">
+      <h3 className="text-3xl font-bold text-gray-800 mb-4">
+        Kelola Data Kader Lebih Rapi
+      </h3>
 
-          </div>
-          <div className="flex-1 w-full flex justify-center">
-            {/* Placeholder graphic */}
-            <div className="w-full max-w-sm h-64 bg-[#00A3FF] rounded-xl shadow-lg relative flex overflow-hidden">
-              <div className="w-1/3 bg-[#0CAFFF] h-full flex flex-col gap-4 items-center justify-center p-4">
-                <div className="w-8 h-8 rounded-full bg-white opacity-50"></div>
-                <div className="w-8 h-8 rounded-full bg-white opacity-50"></div>
-                <div className="w-8 h-8 rounded-full bg-white opacity-50"></div>
-              </div>
-              <div className="flex-1 bg-white/10 h-full p-4 flex flex-col justify-center gap-4">
-                <div className="w-full h-12 bg-white rounded shadow-sm"></div>
-                <div className="w-full h-24 bg-white rounded shadow-sm"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <p className="text-gray-600 leading-7 mb-8">
+        Input, edit, dan pantau data kader secara terpusat sehingga administrasi
+        organisasi menjadi lebih tertata dan mudah diakses.
+      </p>
+
+      {/* list tetap */}
+    </div>
+
+    {/* Image */}
+    <div className="flex-1">
+      <div className="relative overflow-hidden rounded-2xl shadow-xl">
+        <img
+          src={hmiFlag}
+          alt=""
+          className="w-full h-[320px] object-cover"
+        />
       </div>
+    </div>
+  </div>
+</div>
 
       {/* Section 2: Pantau Progres Kaderisasi */}
-      <div className="bg-[#F5EDFF] py-16 px-8 mb-8">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
-          <div className="flex-1">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Pantau Progres Kaderisasi</h3>
-            <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-              Lihat perkembangan kader dari LK1 hingga LK3.
-            </p>
-            <ul className="space-y-4 mb-8">
-              <li className="flex gap-3 items-start">
-                <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">Status kaderisasi</p>
-              </li>
-              <li className="flex gap-3 items-start">
-                <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">Distribusi per komisariat</p>
-              </li>
-              <li className="flex gap-3 items-start">
-                <div className="w-5 h-5 rounded-full bg-[#008000] text-white flex items-center justify-center text-xs mt-0.5 shrink-0">✓</div>
-                <p className="text-sm text-gray-700">Rekap evaluasi cabang</p>
-              </li>
-            </ul>
+      <div className="bg-blue-100 py-20 px-8 mb-10">
+  <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row-reverse items-center gap-16">
+    {/* Text */}
+    <div className="flex-1">
+      <h3 className="text-3xl font-bold text-gray-800 mb-4">
+        Pantau Progres Kaderisasi
+      </h3>
 
-          </div>
-          <div className="flex-1 w-full flex justify-center">
-             {/* Placeholder graphic */}
-             <div className="w-full max-w-sm h-64 bg-[#B07BFF] rounded-xl shadow-lg relative p-4 flex flex-col justify-center gap-4">
-                <div className="w-full flex gap-4">
-                  <div className="w-1/2 h-24 bg-white rounded shadow-sm"></div>
-                  <div className="w-1/2 h-24 bg-white rounded shadow-sm"></div>
-                </div>
-                <div className="w-full h-16 bg-white/20 rounded border border-white/30 backdrop-blur-sm"></div>
-             </div>
-          </div>
-        </div>
+      <p className="text-gray-600 leading-7 mb-8">
+        Monitoring perjalanan kader mulai dari pelatihan hingga evaluasi secara
+        terstruktur dalam satu dashboard.
+      </p>
+
+      {/* list tetap */}
+    </div>
+
+    {/* Image */}
+    <div className="flex-1">
+      <div className="overflow-hidden rounded-2xl shadow-xl bg-white">
+        <img
+          src={teaching}
+          alt=""
+          className="w-full h-[320px] object-contain"
+        />
       </div>
+    </div>
+  </div>
+</div>
 
       {/* Data Kader Terbaru */}
       
