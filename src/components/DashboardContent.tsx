@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PengurusKahmiGallery, { placeholderPengurusKahmiRows } from './PengurusKahmiGallery';
 
 // Mock Data
 const initialData = [
@@ -45,25 +46,31 @@ const DashboardContent: React.FC = () => {
   return (
     <div className="flex-1 overflow-y-auto bg-gray-50 relative">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#008000] to-green-500 pt-12 pb-40 px-8 relative overflow-hidden flex flex-col items-center justify-center text-center">
+      <div className="bg-gradient-to-r from-[#008000] to-green-500 pt-10 pb-36 px-8 relative overflow-hidden flex flex-col items-center justify-center text-center">
         <div className="absolute inset-0 bg-black/10 z-0"></div>
-        <div className="relative z-10 w-full max-w-3xl">
+        <div className="relative z-10 w-full max-w-4xl">
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Sistem Database Kader HMI Cabang
           </h1>
           <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Kelola data kader, komisariat, dan progres kaderisasi dalam satu dashboard.
           </p>
-          <div className="mt-8 w-full max-w-4xl mx-auto border-2 border-dashed border-white/30 rounded-xl py-8 flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm">
-            <span className="text-white/90 font-medium text-sm mb-1">Area Foto Pengurus & KAHMI</span>
-            <span className="text-white/60 text-xs">(Akan ditambahkan menyusul)</span>
+          <div className="mt-8 space-y-4 w-full max-w-4xl mx-auto">
+            <div className="border-2 border-dashed border-white/30 rounded-xl py-8 flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm">
+              <span className="text-white/90 font-medium text-sm mb-1">Area Foto Pengurus & KAHMI</span>
+              <span className="text-white/60 text-xs">(Akan ditambahkan menyusul)</span>
+            </div>
+            <div className="border-2 border-dashed border-white/30 rounded-xl py-8 flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm">
+              <span className="text-white/90 font-medium text-sm mb-1">Area Banner & Profil Cabang</span>
+              <span className="text-white/60 text-xs">(Akan ditambahkan menyusul)</span>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Summary Cards overlapping the hero background */}
-      <div className="px-8 -mt-20 mb-12 relative z-20">
-        <div className="bg-white rounded-xl shadow-lg p-8 py-10 flex justify-around text-center divide-x divide-gray-100 max-w-5xl mx-auto">
+      <div className="px-6 sm:px-8 -mt-16 mb-6 relative z-20 max-w-6xl mx-auto">
+        <div className="bg-white rounded-xl shadow-lg p-8 py-10 flex justify-around text-center divide-x divide-gray-100 w-full">
           <div className="px-4 w-1/4">
             <p className="text-5xl font-bold text-[#008000] mb-2">{dashboardStats.total}</p>
             <p className="text-gray-500 text-sm font-medium">Total Kader Aktif</p>
@@ -82,6 +89,14 @@ const DashboardContent: React.FC = () => {
             <p className="text-gray-500 text-sm font-medium">LK3</p>
           </div>
         </div>
+      </div>
+
+      {/* Pengurus & KAHMI Gallery */}
+      <div className="px-6 sm:px-8 mb-10 relative z-10 max-w-6xl mx-auto">
+        <PengurusKahmiGallery
+          rows={placeholderPengurusKahmiRows}
+          subtitle="Kenali Pengurus dan Anggota KAHMI HMI Cabang — Mendukung pengelolaan organisasi yang solid dan terstruktur."
+        />
       </div>
 
       {/* Section 1: Kelola Data Kader */}
