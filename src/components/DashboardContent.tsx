@@ -154,13 +154,13 @@ const DashboardContent: React.FC = () => {
 
   </div>
 
-      {/* Pengurus & KAHMI Gallery */}
+      {/* Pengurus & KAHMI Gallery
       <div className="px-6 sm:px-8 mb-10 relative z-10 max-w-6xl mx-auto">
         <PengurusKahmiGallery
           rows={placeholderPengurusKahmiRows}
           subtitle="Kenali Pengurus dan Anggota KAHMI HMI Cabang — Mendukung pengelolaan organisasi yang solid dan terstruktur."
         />
-      </div>
+      </div> */}
 
       {/* Section 1: Kelola Data Kader */}
       <div className="bg-[#EAF6F6] py-20 px-8">
