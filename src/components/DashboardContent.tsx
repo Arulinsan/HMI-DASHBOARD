@@ -15,11 +15,11 @@ const initialData = [
 ];
 
 const dashboardStats = {
-  total: 120,
-  lk1: 70,
-  lk2: 30,
+  total: 388,
+  lk1: 388,
+  lk2: 48,
   lk3: 20,
-  bulanIni: 5,
+  bulanIni: +43,
 };
 
 const DashboardContent: React.FC = () => {
